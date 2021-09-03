@@ -34,7 +34,6 @@ body {
 body.dark {
 	--bg-standard: #36393f;
 	--bg-dark: #202225;
-	--off-hover: #dcddde;
 	--server-separator: #ffffff0f;
 	--header: #fff;
 	--labels: #18191c;
@@ -49,7 +48,6 @@ body.dark {
 body.light {
 	--bg-standard: #fff;
 	--bg-dark: #e3e5e8;
-	--off-hover: #2e3338;
 	--server-separator: #06060714;
 	--header: #060607;
 	--labels: #fff;
@@ -85,7 +83,7 @@ body.light {
 	margin: 0.5em 0.75em;
 }
 #servers a:first-child {
-	color: var(--off-hover);
+	color: var(--text-normal);
 }
 #servers hr {
 	background-color: var(--server-separator);
@@ -214,7 +212,7 @@ body.light {
 	width: 1.25em;
 	margin-right: 0.325em;
 }
-#channels a:hover span, #channels a.active span { color: var(--off-hover); }
+#channels a:hover span, #channels a.active span { color: var(--text-normal); }
 #channels a:hover { background-color: var(--channels-hover); }
 #channels a.active { background-color: var(--channels-active); }
 .blogname {
