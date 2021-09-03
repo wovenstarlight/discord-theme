@@ -6,7 +6,7 @@ html, body {
 body {
 	font-size: 16px;
 	display: grid;
-	grid-template-columns: auto 1fr;
+	grid-template-columns: auto 15em 1fr;
 	grid-template-rows: 100vh;
 	background-color: var(--bg-standard);
 }
@@ -20,6 +20,7 @@ body.dark {
 	--server-separator: #ffffff0f;
 	--header: #fff;
 	--labels: #18191c;
+	color: #dcddde;
 }
 body.light {
 	--bg-standard: #fff;
@@ -31,6 +32,7 @@ body.light {
 	--server-separator: #06060714;
 	--header: #060607;
 	--labels: #fff;
+	color: #2e3338;
 }
 #servers {
 	background-color: var(--bg-dark);
@@ -88,6 +90,7 @@ body.light {
 	opacity: 0;
 	height: 0;
 }
+#servers a:first-child::before { left: -1.625em; }
 #servers a:hover::before {
 	opacity: 1;
 	height: 0.75em
