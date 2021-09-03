@@ -152,13 +152,28 @@ body.light {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 }
+#sidebar header { box-shadow: var(--bg-dark) 0 1px 1px; }
 #sidebar header h1 {
 	color: var(--header);
 	font-weight: 600;
 	padding: 1em;
 	font-size: 0.94em;
+	position: relative;
+	z-index: 1;
 }
-#sidebar header:not(.banner) { box-shadow: var(--bg-dark) 0 1px 1px; }
+#sidebar header.banner { padding-bottom: 5.4375em; }
+#sidebar header.banner img {
+	position: absolute;
+	width: 15em;
+	height: 8.4375em;
+	object-fit: cover;
+	top: 0;
+}
+#sidebar header.banner h1 {
+	color: #fff;
+	background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.4)),to(transparent));
+	background: linear-gradient(180deg,rgba(0,0,0,.4) 0,transparent);
+}
 .blogname {
 	background-color: var(--blogname);
 	display: grid;
