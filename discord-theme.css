@@ -37,8 +37,9 @@ body.dark {
 	--labels: #18191c;
 	--sidebar: #2f3136;
 	--blogname: #292b2f;
-	--usertag: #b9bbbe;
+	--secondary: #b9bbbe;
 	--text-normal: #dcddde;
+	--text-muted: #72767d;
 	--channels: #8e9297;
 	--channels-hover: rgba(79,84,92,0.16);
 	--channels-active: rgba(79,84,92,0.32);
@@ -52,8 +53,9 @@ body.light {
 	--labels: #fff;
 	--sidebar: #f2f3f5;
 	--blogname: #ebedef;
-	--usertag: #4f5660;
+	--secondary: #4f5660;
 	--text-normal: #2e3338;
+	--text-muted: #747f8d;
 	--channels: #6a7480;
 	--channels-hover: rgba(116,127,141,0.08);
 	--channels-active: rgba(116,127,141,0.24);
@@ -132,11 +134,16 @@ body.light {
 	filter: drop-shadow(0.125em 0.35em 0.5em #06060755);
 	font-size: 1em;
 }
-.tippy-box[data-theme~="servers"][data-placement^="right"] > .tippy-arrow::before {
-	border-right-color: var(--labels);
+.tippy-box[data-theme~="servers"] > .tippy-arrow::before {
 	-webkit-transform:scale(0.7,0.7);
 	-ms-transform:scale(0.7,0.7);
 	transform:scale(0.7,0.7);
+}
+.tippy-box[data-theme~="servers"][data-placement^="right"] > .tippy-arrow::before {
+	border-right-color: var(--labels);
+}
+.tippy-box[data-theme~="servers"][data-placement^="bottom"] > .tippy-arrow::before {
+	border-bottom-color: var(--labels);
 }
 
 #sidebar {
@@ -146,7 +153,8 @@ body.light {
 }
 #sidebar header, #sidebar header h1,
 .middle, #channels, #channels a span,
-.blogname div, .blogname div *{
+.blogname div, .blogname div *,
+.pagename, .pagename p {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -234,9 +242,49 @@ img.round { border-radius: 100%; }
 	font-weight: 600;
 }
 .blogname div p {
-	color: var(--usertag);
+	color: var(--secondary);
 	font-size: 0.75em;
 }
+
+.pagename, .icons, .icons a {
+	display: flex;
+	align-items: center;
+}
+main header {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	column-gap: 10em; /* To make space for the tumblr controls */
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: var(--bg-dark) 0 1px 1px;
+	height: 3em;
+	padding: 0 1em;
+}
+.pagename p { color: var(--header); font-weight: 600; text-transform: lowercase }
+.pagename svg { color: var(--text-muted); margin-right: 0.5em; flex-shrink: 0;}
+.icons > *:not(:last-child) { margin-right: 1em; }
+.icons svg { cursor: pointer; color: var(--secondary); }
+.icons form { position: relative; }
+.icons form input {
+	border: none;
+	background: var(--bg-dark);
+	color: var(--text-normal);
+	font-family: inherit;
+	width: 10em;
+	font-size: 0.9em;
+	border-radius: 0.25em;
+	padding: 0.25em 1.75em 0.25em 0.5em;
+	transition: .2s;
+}
+.icons form input:focus, .icons form input:not(:placeholder-shown) { width: 16em; }
+.icons form svg {
+	position: absolute;
+	right: 0.25em;
+	width: 1em;
+	color: var(--text-muted);
+}
+.tippy-box[data-theme~="navbar"] { font-size: 0.9em; }
+
 
 
 @media (min-width: 800px) {
