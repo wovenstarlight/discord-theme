@@ -13,4 +13,9 @@ $(document).ready( function() {
 		offset: [0, 20],
 		theme: "servers"
 	});
+
+	tippy("header .icons [data-tippy-content]", {
+		placement: "bottom",
+		theme: "servers navbar"
+	})
 });
