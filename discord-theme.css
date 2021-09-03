@@ -10,12 +10,10 @@ h1, h2, h3, h4, h5, h6, p {
 	font-weight: normal;
 	font-size: 1em;
 }
-img {
-	max-width: 100%;
-}
-*, *::after, *::before {
-	box-sizing: border-box;
-}
+img { max-width: 100%; }
+*, *::after, *::before { box-sizing: border-box; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
 /* Actual styling */
 body {
 	font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -44,6 +42,7 @@ body.dark {
 	--channels: #8e9297;
 	--channels-hover: rgba(79,84,92,0.16);
 	--channels-active: rgba(79,84,92,0.32);
+	--link: #00aff4;
 }
 body.light {
 	--bg-standard: #fff;
@@ -58,6 +57,7 @@ body.light {
 	--channels: #6a7480;
 	--channels-hover: rgba(116,127,141,0.08);
 	--channels-active: rgba(116,127,141,0.24);
+	--link: #0068e0;
 }
 #servers {
 	background-color: var(--bg-dark);
@@ -157,12 +157,13 @@ body.light {
 	grid-template-rows: auto 1fr auto;
 }
 #sidebar header, #sidebar header h1,
-#channels, #channels a span,
+.middle, #channels, #channels a span,
 .blogname div, .blogname div *{
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+#sidebar header a { text-decoration: none; }
 #sidebar header { box-shadow: var(--bg-dark) 0 1px 1px; }
 #sidebar header h1 {
 	color: var(--header);
@@ -186,16 +187,29 @@ body.light {
 	background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.4)),to(transparent));
 	background: linear-gradient(180deg,rgba(0,0,0,.4) 0,transparent);
 }
-#channels {
-	display: flex;
-	flex-direction: column;
-	padding: 1em 0.5em;
+.middle {
 	overflow-y: scroll;
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
 }
-#channels::-webkit-scrollbar {
-	display: none;
+.middle::-webkit-scrollbar {
+	padding: 1em 0.5em;
+	font-size: 0.9em;
+	text-align: center;
+	white-space: normal;
+}
+#description {
+	padding: 1em 0.5em;
+	font-size: 0.9em;
+	text-align: center;
+	white-space: normal;
+}
+#description ol, #description ul { padding: 0 0 0 1em; margin: 0.5em 0; }
+#description + #channels { padding-top: 0; }
+#channels {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0.5em;
 }
 #channels a {
 	color: var(--channels);
