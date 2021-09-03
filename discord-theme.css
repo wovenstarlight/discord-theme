@@ -160,11 +160,6 @@ body.light {
 	max-width: 100%;
 	align-items: center;
 }
-.blogname div {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
 .blogname div, .blogname div * {
 	white-space: nowrap;
 	overflow: hidden;
