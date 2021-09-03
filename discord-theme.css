@@ -32,3 +32,92 @@ body.light {
 	--header: #060607;
 	--labels: #fff;
 }
+#servers {
+	background-color: var(--bg-dark);
+	padding: 0.25em 0 0.5em;
+	overflow: hidden scroll;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+#servers::-webkit-scrollbar {
+	display: none;
+}
+#servers a {
+	--size: 3em;
+	height: var(--size);
+	width: var(--size);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: .2s;
+	border-radius: 50%;
+	background-color: var(--bg-standard);
+	color: var(--green);
+	margin: 0.5em 0.75em;
+}
+#servers a:first-child {
+	color: var(--off-hover);
+}
+#servers hr {
+	background-color: var(--server-separator);
+	height: 2px;
+	width: 2em;
+	border-radius: 1px;
+	border: none;
+}
+#servers a:hover,
+#servers a:first-child:hover,
+#servers a.active {
+	background-color: var(--green);
+	color: var(--hover);
+	border-radius: 30%;
+}
+#servers a:first-child:hover,
+#servers a:first-child.active {
+	background-color: var(--discord-blue);
+}
+#servers a::before {
+	content: "";
+	position: relative;
+	margin-right: -0.5em;
+	left: -1.75em;
+	display: block;
+	border: 0.25em solid var(--header);
+	border-radius: 0.25em;
+	transition: .2s;
+	opacity: 0;
+	height: 0;
+}
+#servers a:hover::before {
+	opacity: 1;
+	height: 0.75em
+}
+#servers a.active::before {
+	opacity: 1;
+	height: 2em;
+}
+#servers a label {
+	position: absolute;
+	white-space: nowrap;
+	left: 5em;
+	background-color: var(--labels);
+	padding: 0.5em 0.75em;
+	border-radius: 0.25em;
+	color: var(--header);
+	transition: .2s;
+	filter: drop-shadow(0.125em 0.35em 0.5em #06060755);
+}
+#servers a label::before {
+	--length: 4px;
+	content: "";
+	display: block;
+	border: var(--length) solid transparent;
+	border-right-color: var(--labels);
+	position: absolute;
+	left: calc(-2 * var(--length));
+	top: calc(50% - var(--length));
+}
+#servers a:not(:hover) label {
+	pointer-events: none;
+	opacity: 0;
+}
