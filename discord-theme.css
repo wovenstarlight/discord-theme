@@ -146,11 +146,19 @@ body.light {
 	pointer-events: none;
 	opacity: 0;
 }
+
 #sidebar {
 	background-color: var(--sidebar);
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 }
+#sidebar header h1 {
+	color: var(--header);
+	font-weight: 600;
+	padding: 1em;
+	font-size: 0.94em;
+}
+#sidebar header:not(.banner) { box-shadow: var(--bg-dark) 0 1px 1px; }
 .blogname {
 	background-color: var(--blogname);
 	display: grid;
@@ -160,7 +168,8 @@ body.light {
 	max-width: 100%;
 	align-items: center;
 }
-.blogname div, .blogname div * {
+.blogname div, .blogname div *,
+#sidebar header, #sidebar header h1 {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
