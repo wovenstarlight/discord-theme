@@ -1,14 +1,30 @@
+/* Standard resets */
 html, body {
 	padding: 0;
 	margin: 0;
-	font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.2;
 }
+h1, h2, h3, h4, h5, h6, p {
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	font-size: 1em;
+}
+img {
+	max-width: 100%;
+}
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+/* Actual styling */
 body {
+	font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	display: grid;
 	grid-template-columns: auto 15em 1fr;
 	grid-template-rows: 100vh;
 	background-color: var(--bg-standard);
+	color: var(--text-normal);
 }
 body.dark {
 	--bg-standard: #36393f;
@@ -20,7 +36,10 @@ body.dark {
 	--server-separator: #ffffff0f;
 	--header: #fff;
 	--labels: #18191c;
-	color: #dcddde;
+	--sidebar: #2f3136;
+	--blogname: #292b2f;
+	--usertag: #b9bbbe;
+	--text-normal: #dcddde;
 }
 body.light {
 	--bg-standard: #fff;
@@ -32,7 +51,10 @@ body.light {
 	--server-separator: #06060714;
 	--header: #060607;
 	--labels: #fff;
-	color: #2e3338;
+	--sidebar: #f2f3f5;
+	--blogname: #ebedef;
+	--usertag: #4f5660;
+	--text-normal: #2e3338;
 }
 #servers {
 	background-color: var(--bg-dark);
