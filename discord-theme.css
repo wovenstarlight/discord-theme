@@ -10,3 +10,25 @@ body {
 	grid-template-rows: 100vh;
 	background-color: var(--bg-standard);
 }
+body.dark {
+	--bg-standard: #36393f;
+	--bg-dark: #202225;
+	--green: #3ba55d;
+	--discord-blue: #5865f2;
+	--hover: #fff;
+	--off-hover: #dcddde;
+	--server-separator: #ffffff0f;
+	--header: #fff;
+	--labels: #18191c;
+}
+body.light {
+	--bg-standard: #fff;
+	--bg-dark: #e3e5e8;
+	--green: #3ba55d;
+	--discord-blue: #5865f2;
+	--hover: #fff;
+	--off-hover: #2e3338;
+	--server-separator: #06060714;
+	--header: #060607;
+	--labels: #fff;
+}
