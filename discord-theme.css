@@ -124,31 +124,19 @@ body.light {
 	opacity: 1;
 	height: 2em;
 }
-#servers a label {
-	position: absolute;
-	white-space: nowrap;
-	left: 5em;
+.tippy-box[data-theme~="servers"] {
 	background-color: var(--labels);
-	padding: 0.5em 0.75em;
+	padding: 0.125em;
 	border-radius: 0.25em;
 	color: var(--header);
-	transition: .2s;
 	filter: drop-shadow(0.125em 0.35em 0.5em #06060755);
-	z-index: 999;
+	font-size: 1em;
 }
-#servers a label::before {
-	--length: 4px;
-	content: "";
-	display: block;
-	border: var(--length) solid transparent;
+.tippy-box[data-theme~="servers"][data-placement^="right"] > .tippy-arrow::before {
 	border-right-color: var(--labels);
-	position: absolute;
-	left: calc(-2 * var(--length));
-	top: calc(50% - var(--length));
-}
-#servers a:not(:hover) label {
-	pointer-events: none;
-	opacity: 0;
+	-webkit-transform:scale(0.7,0.7);
+	-ms-transform:scale(0.7,0.7);
+	transform:scale(0.7,0.7);
 }
 
 #sidebar {

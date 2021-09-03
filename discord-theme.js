@@ -7,4 +7,10 @@ $(document).ready( function() {
 		$(this).toggleClass("active");
 		$("#sidebar").toggleClass("active");
 	});
+
+	tippy("#servers a[data-tippy-content]", {
+		placement: "right",
+		offset: [0, 20],
+		theme: "servers"
+	});
 });
