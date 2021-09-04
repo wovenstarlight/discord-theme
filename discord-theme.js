@@ -8,6 +8,10 @@ $(document).ready( function() {
 		$("#sidebar").toggleClass("active");
 	});
 
+	$("#tmblr-controls-toggle").click(function(){
+		$("body").toggleClass("controls-click");
+	});
+
 	tippy("#servers a[data-tippy-content]", {
 		placement: "right",
 		offset: [0, 20],
