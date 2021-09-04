@@ -1,5 +1,7 @@
 <!-- 
-	Tumblr theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
+	THEME 1: DISCORD
+	
+	Theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
 
 	Credits:
 		Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
@@ -17,83 +19,100 @@
 	<link rel="shortcut icon" href="{Favicon}">
 	<link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
-	<link rel="stylesheet" href="discord-theme.css">
+	
+	<meta name="if:Show Random post link" content="1" />
+	<meta name="if:Show Archive link" content="1" />
+	
+	<meta name="select:Default theme" content="dark" title="Dark">
+	<meta name="select:Default theme" content="light" title="Light">
+	
+	<meta name="text:Font size" content="16px" />
+	
+	<meta name="color:Title when header active" content="#fff" />
 
-	<meta name="text:Discord Tag" content="0000" />
+	<meta name="if:Show Discord tag" content="1" />
+	<meta name="text:Discord tag" content="0000" />
+
+<link rel="stylesheet" href="discord-theme.css">
+
+<style type="text/css">
+/* To be added from the above linked sheet */
+
+{CustomCSS}
+</style>
 </head>
 
 
-<body class="dark">
+<body class="{select:Default theme}">
 
 <nav id="servers">
-	<a href="/" data-tippy-content="{lang:Home}">
-		<svg width="28" height="20" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-home"></use></svg>
+	<a href="/" data-tippy-content="{lang:Home}" class="{block:HomePage}active{/block:HomePage}">
+		<svg width="1.75em" height="1.25em" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-home"></use></svg>
 	</a>
 	<hr>
-	<a href="/ask" data-tippy-content="{AskLabel}">
-		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-ask"></use></svg>
+	{block:AskEnabled}
+	<a href="/ask" data-tippy-content="{AskLabel}" class="{block:AskPage}active{/block:AskPage}">
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-ask"></use></svg>
 	</a>
-	<a href="/submit" data-tippy-content="{SubmitLabel}">
-		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-submit"></use></svg>
+	{/block:AskEnabled}
+	{block:SubmissionsEnabled}
+	<a href="/submit" data-tippy-content="{SubmitLabel}" class="{block:SubmitPage}active{/block:SubmitPage}">
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-submit"></use></svg>
 	</a>
-	<a href="/liked/by/{Name}" data-tippy-content="{lang:Likes}">
-		<svg width="20" height="20" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
+	{/block:SubmissionsEnabled}
+	{block:Likes}
+	<a href="/liked/by/{Name}" data-tippy-content="{lang:Likes}" class="{block:LikesPage}active{/block:LikesPage}">
+		<svg width="1.25em" height="1.25em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
 	</a>
-	<a href="/followed/by/{Name}" data-tippy-content="{lang:Following}">
-		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-following"></use></svg>
+	{/block:Likes}
+	{block:ShareFollowing}
+	<a href="/followed/by/{Name}" data-tippy-content="{lang:Following}" class="{block:FollowingPage}active{/block:FollowingPage}">
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-following"></use></svg>
 	</a>
+	{/block:ShareFollowing}
+	{block:IfShowRandomPostLink}
 	<a href="/random" data-tippy-content="{lang:Random post}">
-		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-random"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-random"></use></svg>
 	</a>
+	{/block:IfShowRandomPostLink}
+	{block:IfShowArchiveLink}
 	<a href="/archive" data-tippy-content="{lang:Archive}">
-		<svg width="24" height="24" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-archive"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-archive"></use></svg>
 	</a>
+	{/block:IfShowArchiveLink}
 	<a class="more" data-tippy-content="{lang:About me}">
-		<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-plus"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-plus"></use></svg>
 	</a>
 </nav>
 
 <div id="sidebar">
-	<header class="banner">
+	<header class="{block:ShowHeaderImage}banner{/block:ShowHeaderImage}">
 		<a href="/">
 			<h1>{Title}</h1>
-			<img src="https://pbs.twimg.com/media/EaBnu1GUEAAD-2i?format=jpg">
+			{block:ShowHeaderImage}<img src="{HeaderImage}">{/block:ShowHeaderImage}
 		</a>
 	</header>
 
 	<div class="middle">
-		<div id="description">
-			Here's a decently long description.
-			<ol><li>Sample</li></ol>
-			<p>It's got some special formatting, too! Specifically, <a href="https://discord.com">a link</a>, and <em>some</em> <strong>other</strong> <strike>fun</strike> <u>stuff</u> too.</p>
-			<ul>
-				<li>Sample</li>
-				<li>Use your best judgement with what needs to be lists!</li>
-			</ul>
-			<p>And then there's more text here!</p>
-		</div>
-			
+	    {block:ShowDescription}{block:Description}
+		<div id="description">{Description}</div>
+		{/block:Description}{/block:ShowDescription}
+		
+		{block:HasPages}
 		<nav id="channels">
-			<a href="/1">
-				<svg width="24" height="24" viewBox="0 -3 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
-				<span>Sample link 1</span>
-			</a>
-			<a href="/2">
-				<svg width="24" height="24" viewBox="0 -3 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
-				<span>short 2</span>
-			</a>
-			<a href="/3">
-				<svg width="24" height="24" viewBox="0 -3 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
-				<span>aaaand a particularly LONG third one goes here!!!</span>
-			</a>
+		    {block:Pages}<a href="{URL}">
+				<svg width="1.5em" height="1.5em" viewBox="0 -3 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
+				<span>{Label}</span>
+			</a>{/block:Pages}
 		</nav>
+		{/block:HasPages}
 	</div>
 
 	<div class="blogname">
-		<img src="https://pbs.twimg.com/media/EecE6egUcAIzhOp?format=jpg" class="circle">
+	    {block:ShowAvatar}<img src="{PortraitURL-128}" class="{AvatarShape}">{/block:ShowAvatar}
 		<div>
 			<h2>{Name}</h2>
-			<p>#{text:Discord Tag}</p>
+			{block:IfShowDiscordTag}<p>#{text:Discord tag}</p>{/block:IfShowDiscordTag}
 		</div>
 	</div>
 </div>
@@ -101,17 +120,17 @@
 <main>
 	<header>
 		<div class="pagename">
-			<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
-			<p>{lang:Home}</p>
+			<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
+			<p>{block:HomePage}{lang:Home}{/block:HomePage}{block:AskPage}{AskLabel}{/block:AskPage}{block:SubmitPage}{SubmitLabel}{/block:SubmitPage}</p>
 		</div>
 		<div class="icons">
-			<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
+			<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.125em" height="1.125em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
 			<form action="/search" method="get">
 				<input type="text" name="q" value="{URLSafeSearchQuery}" placeholder="{lang:Search}"/>
-				<svg width="24" height="24" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
+				<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
 			</form>
-			<a id="darklight" data-tippy-content="Toggle dark/light mode"><svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
-			<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="20" height="20" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
+			<a id="darklight" data-tippy-content="Toggle dark/light mode"><svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
+			<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
 		</div>
 	</header>
 
@@ -120,14 +139,14 @@
 	</div>
 
 	<div id="navigate">
-		<svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-copyright"></use></svg>
+		<svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-copyright"></use></svg>
 		<p>{Name} {CopyrightYears}</p>
-		<div class="paginate">
-			<a class="prev" href="{PreviousPage}" data-tippy-content="Previous"><svg width="20" height="20" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>
+		{block:Pagination}<div class="paginate">
+			{block:PreviousPage}<a class="prev" href="{PreviousPage}" data-tippy-content="Previous"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousPage}
 			<p class="curr">{CurrentPage}</p>
 			<p>{TotalPages}</p>
-			<a class="next" href="{NextPage}" data-tippy-content="Next"><svg width="20" height="20" viewBox="2 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>
-		</div>
+			{block:NextPage}<a class="next" href="{NextPage}" data-tippy-content="Next"><svg width="1.25em" height="1.25em" viewBox="2 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextPage}
+		</div>{/block:Pagination}
 	</div>
 </main>
 
