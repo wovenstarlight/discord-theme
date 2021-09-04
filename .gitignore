@@ -1,2 +1,2 @@
-# Ignore all themes used as reference
-reference-*.html
+# Ignore all files used as reference
+reference-*.*
