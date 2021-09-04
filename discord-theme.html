@@ -26,9 +26,17 @@
 	<meta name="select:Default theme" content="dark" title="Dark">
 	<meta name="select:Default theme" content="light" title="Light">
 	
+	<meta name="font:Body font" content="Whitney"/>
+	<meta name="font:Header font" content="Ginto"/>
 	<meta name="text:Font size" content="16px" />
 	
 	<meta name="color:Title when header active" content="#fff" />
+	<meta name="color:Servers navbar" content="#3ba55d"/>
+	<meta name="color:Dark mode headers and accent" content="#fff"/>
+	<meta name="color:Light mode headers and accent" content="#060607"/>
+	<meta name="color:Dark mode links" content="#00aff4"/>
+	<meta name="color:Light mode links" content="#0068e0"/>
+	<meta name="color:Discord logo" content="#5865f2"/>
 
 	<meta name="if:Show Discord tag" content="1" />
 	<meta name="text:Discord tag" content="0000" />
@@ -40,6 +48,7 @@
 
 {CustomCSS}
 </style>
+
 </head>
 
 
@@ -111,7 +120,7 @@
 	<div class="blogname">
 	    {block:ShowAvatar}<img src="{PortraitURL-128}" class="{AvatarShape}">{/block:ShowAvatar}
 		<div>
-			<h2>{Name}</h2>
+			<p class="name">{Name}</p>
 			{block:IfShowDiscordTag}<p>#{text:Discord tag}</p>{/block:IfShowDiscordTag}
 		</div>
 	</div>
@@ -121,7 +130,7 @@
 	<header>
 		<div class="pagename">
 			<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
-			<p>{block:HomePage}{lang:Home}{/block:HomePage}{block:AskPage}{AskLabel}{/block:AskPage}{block:SubmitPage}{SubmitLabel}{/block:SubmitPage}</p>
+			<h2>{block:HomePage}{lang:Home}{/block:HomePage}{block:AskPage}{AskLabel}{/block:AskPage}{block:SubmitPage}{SubmitLabel}{/block:SubmitPage}</h2>
 		</div>
 		<div class="icons">
 			<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.125em" height="1.125em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>

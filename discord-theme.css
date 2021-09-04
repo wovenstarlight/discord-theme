@@ -16,23 +16,24 @@ a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 /* Actual styling */
 body {
-	font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
+	font-family: {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: {text:Font size};
 	display: grid;
 	grid-template-columns: auto 15em 1fr;
 	grid-template-rows: 100vh;
 	background-color: var(--bg-standard);
 	color: var(--text-normal);
 	overflow: hidden;
-	--banner-header: #000;
-	--discord-blue: #5865f2;
-	--green: #3ba55d;
+	--banner-header: {color:Title when header active};
+	--discord-blue: {color:Discord logo};
+	--green: {color:Servers navbar};
 	--hover: #fff;
 }
+h1, h2, h3, h4, h5, h6 { font-family: {font:Header font}, {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif; }
 body.dark {
 	--bg-standard: #36393f;
 	--bg-dark: #202225;
-	--header: #fff;
+	--header: {color:Dark mode headers and accent};
 	--labels: #18191c;
 	--sidebar: #2f3136;
 	--blogname: #292b2f;
@@ -42,13 +43,13 @@ body.dark {
 	--channels: #8e9297;
 	--channels-hover: rgba(79,84,92,0.16);
 	--channels-active: rgba(79,84,92,0.32);
-	--link: #00aff4;
+	--link: {color:Dark mode links};
 	--paginate: #40444b;
 }
 body.light {
 	--bg-standard: #fff;
 	--bg-dark: #e3e5e8;
-	--header: #060607;
+	--header: {color:Light mode headers and accent};
 	--labels: #fff;
 	--sidebar: #f2f3f5;
 	--blogname: #ebedef;
@@ -58,7 +59,7 @@ body.light {
 	--channels: #6a7480;
 	--channels-hover: rgba(116,127,141,0.08);
 	--channels-active: rgba(116,127,141,0.24);
-	--link: #0068e0;
+	--link: {color:Light mode links};
 	--paginate: #ebedef;
 }
 #servers {
@@ -161,7 +162,7 @@ body.light {
 #sidebar header, #sidebar header h1,
 .middle, #channels, #channels a span,
 .blogname div, .blogname div *,
-.pagename, .pagename p,
+.pagename, .pagename h2,
 #navigate > p {
 	white-space: nowrap;
 	overflow: hidden;
@@ -245,7 +246,7 @@ body.light {
 .blogname img { height: 2em; width: 2em; }
 img.circle { border-radius: 100%; }
 img.square { border-radius: 0.15em; }
-.blogname div h2 {
+.blogname div .name {
 	font-size: 0.875em;
 	color: var(--header);
 	font-weight: 600;
@@ -283,14 +284,17 @@ main header {
 	background: -webkit-gradient(linear,right,left,from(var(--bg-standard)),to(transparent));
 	background: linear-gradient(270deg,var(--bg-standard) 0,transparent);
 }
-.pagename p { color: var(--header); font-weight: 600; text-transform: lowercase }
+.pagename h2 { color: var(--header); font-weight: 600; text-transform: lowercase }
 .pagename svg { color: var(--text-muted); margin-right: 0.5em; flex-shrink: 0;}
-.tmblr-iframe-compact .tmblr-iframe–unified-controls {
+.tmblr-iframe {
 	z-index: 999999999!important;
 	margin-top: 3em;
 	opacity: 0;
 	visibility: hidden;
+	transition-property: opacity;
 }
+#tmblr-controls-toggle, .tmblr-iframe { transition: .3s; }
+body.controls-click #tmblr-controls-toggle { transform: rotate(65deg); }
 body.controls-click .tmblr-iframe {
 	opacity: 1.0;
 	visibility: visible;
@@ -327,6 +331,7 @@ body.controls-click .tmblr-iframe {
 	align-items: center;
 	padding: 0 1em;
 }
+#navigate > p { color: var(--text-muted); }
 #navigate .paginate {
 	display: flex;
 	align-items: center;
@@ -345,7 +350,6 @@ body.controls-click .tmblr-iframe {
 	padding-left: 0.6em;
 }
 .paginate p {
-	min-width: 1.25em;
 	text-align: center;
 	font-weight: 600;
 }
