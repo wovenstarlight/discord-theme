@@ -32,7 +32,6 @@ body {
 body.dark {
 	--bg-standard: #36393f;
 	--bg-dark: #202225;
-	--server-separator: #ffffff0f;
 	--header: #fff;
 	--labels: #18191c;
 	--sidebar: #2f3136;
@@ -48,7 +47,6 @@ body.dark {
 body.light {
 	--bg-standard: #fff;
 	--bg-dark: #e3e5e8;
-	--server-separator: #06060714;
 	--header: #060607;
 	--labels: #fff;
 	--sidebar: #f2f3f5;
@@ -88,7 +86,8 @@ body.light {
 	color: var(--text-normal);
 }
 #servers hr {
-	background-color: var(--server-separator);
+	background-color: var(--header);
+	opacity: 0.075;
 	height: 2px;
 	width: 2em;
 	border-radius: 1px;
@@ -235,7 +234,8 @@ body.light {
 	align-items: center;
 }
 .blogname img { height: 2em; width: 2em; }
-img.round { border-radius: 100%; }
+img.circle { border-radius: 100%; }
+img.square { border-radius: 0.15em; }
 .blogname div h2 {
 	font-size: 0.875em;
 	color: var(--header);
@@ -253,16 +253,37 @@ img.round { border-radius: 100%; }
 main header {
 	display: grid;
 	grid-template-columns: 1fr auto;
-	column-gap: 10em; /* To make space for the tumblr controls */
+	column-gap: 1em; /* To make space for the tumblr controls */
 	align-items: center;
 	justify-content: space-between;
 	box-shadow: var(--bg-dark) 0 1px 1px;
 	height: 3em;
 	padding: 0 1em;
 }
+.pagename { position: relative; }
+.pagename::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	display: block;
+	width: 1em;
+	height: 3em;
+	background: -webkit-gradient(linear,right,left,from(var(--bg-standard)),to(transparent));
+	background: linear-gradient(270deg,var(--bg-standard) 0,transparent);
+}
 .pagename p { color: var(--header); font-weight: 600; text-transform: lowercase }
 .pagename svg { color: var(--text-muted); margin-right: 0.5em; flex-shrink: 0;}
-.icons > *:not(:last-child) { margin-right: 1em; }
+.tmblr-iframe-compact .tmblr-iframe–unified-controls {
+	z-index: 999999999!important;
+	margin-top: 3em;
+	opacity: 0;
+	visibility: hidden;
+}
+body.controls-click .tmblr-iframe {
+	opacity: 1.0;
+	visibility: visible;
+}
+.icons > *:not(:last-child) { margin-right: 1.25em; }
 .icons svg { cursor: pointer; color: var(--secondary); }
 .icons form { position: relative; }
 .icons form input {
