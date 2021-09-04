@@ -15,11 +15,16 @@ $(document).ready( function() {
 	tippy("#servers a[data-tippy-content]", {
 		placement: "right",
 		offset: [0, 20],
-		theme: "servers"
+		theme: "default big"
 	});
 
 	tippy("header .icons [data-tippy-content]", {
 		placement: "bottom",
-		theme: "servers navbar"
+		theme: "default"
+	})
+
+	tippy("#navigate [data-tippy-content]", {
+		placement: "top",
+		theme: "default"
 	})
 });
