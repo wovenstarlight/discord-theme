@@ -15,7 +15,8 @@
 		<link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
 		<link rel="alternate" type="application/rss+xml" href="{RSS}"> -->
 		<link rel="stylesheet" href="discord-theme.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+		<meta name="text:Discord Tag" content="0000" />
 	</head>
 
 	<body class="dark">
@@ -31,10 +32,10 @@
 			<a href="/submit" data-tippy-content="{SubmitLabel}">
 				<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-submit"></use></svg>
 			</a>
-			<a href="/likes" data-tippy-content="{lang:Likes}">
-				<svg width="24" height="24" viewBox="-2 0 8 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
+			<a href="/liked/by/{Name}" data-tippy-content="{lang:Likes}">
+				<svg width="20" height="20" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
 			</a>
-			<a href="/following" data-tippy-content="{lang:Following}">
+			<a href="/followed/by/{Name}" data-tippy-content="{lang:Following}">
 				<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-following"></use></svg>
 			</a>
 			<a href="/random" data-tippy-content="{lang:Random post}">
@@ -88,7 +89,7 @@
 				<img src="https://pbs.twimg.com/media/EecE6egUcAIzhOp?format=jpg" class="circle">
 				<div>
 					<h2>{Name}</h2>
-					<p>#0000</p>
+					<p>#{text:Discord Tag}</p>
 				</div>
 			</div>
 		</div>
@@ -100,6 +101,7 @@
 					<p>{lang:Home}</p>
 				</div>
 				<div class="icons">
+					<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
 					<form action="/search" method="get">
 						<input type="text" name="q" value="{URLSafeSearchQuery}" placeholder="{lang:Search}"/>
 						<svg width="24" height="24" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
@@ -134,6 +136,9 @@
 					<path fill="currentColor" fill-rule="evenodd" d="M16.886 7.999H20C21.104 7.999 22 8.896 22 9.999V11.999H2V9.999C2 8.896 2.897 7.999 4 7.999H7.114C6.663 7.764 6.236 7.477 5.879 7.121C4.709 5.951 4.709 4.048 5.879 2.879C7.012 1.746 8.986 1.746 10.121 2.877C11.758 4.514 11.979 7.595 11.998 7.941C11.9991 7.9525 11.9966 7.96279 11.9941 7.97304C11.992 7.98151 11.99 7.98995 11.99 7.999H12.01C12.01 7.98986 12.0079 7.98134 12.0058 7.97287C12.0034 7.96282 12.0009 7.95286 12.002 7.942C12.022 7.596 12.242 4.515 13.879 2.878C15.014 1.745 16.986 1.746 18.121 2.877C19.29 4.049 19.29 5.952 18.121 7.121C17.764 7.477 17.337 7.764 16.886 7.999ZM7.293 5.707C6.903 5.316 6.903 4.682 7.293 4.292C7.481 4.103 7.732 4 8 4C8.268 4 8.519 4.103 8.707 4.292C9.297 4.882 9.641 5.94 9.825 6.822C8.945 6.639 7.879 6.293 7.293 5.707ZM14.174 6.824C14.359 5.941 14.702 4.883 15.293 4.293C15.481 4.103 15.732 4 16 4C16.268 4 16.519 4.103 16.706 4.291C17.096 4.682 17.097 5.316 16.707 5.707C16.116 6.298 15.057 6.642 14.174 6.824ZM3 13.999V19.999C3 21.102 3.897 21.999 5 21.999H11V13.999H3ZM13 13.999V21.999H19C20.104 21.999 21 21.102 21 19.999V13.999H13Z" clip-rule="evenodd"/>
 				</g>
 				<g id="img-likes">
+					<path xmlns="http://www.w3.org/2000/svg" fill="currentColor" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868-3.308 0-6.227 1.633-8.018 4.129-1.791-2.496-4.71-4.129-8.017-4.129-5.45 0-9.868 4.417-9.868 9.868 0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959.17-.721.268-1.469.268-2.242z"/>
+				</g>
+				<g id="img-nitro">
 					<path fill="currentColor" d="M4 0L0 4V8L4 12L8 8V4L4 0ZM7 7.59L4 10.59L1 7.59V4.41L4 1.41L7 4.41V7.59Z"/><path fill="currentColor" d="M2 4.83V7.17L4 9.17L6 7.17V4.83L4 2.83L2 4.83Z"/>
 				</g>
 				<g id="img-following">
@@ -147,6 +152,9 @@
 				</g>
 				<g id="img-plus">
 					<path fill="currentColor" d="M20 11.1111H12.8889V4H11.1111V11.1111H4V12.8889H11.1111V20H12.8889V12.8889H20V11.1111Z"/>
+				</g>
+				<g id="img-controls">
+					<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M19.738 10H22V14H19.739C19.498 14.931 19.1 15.798 18.565 16.564L20 18L18 20L16.565 18.564C15.797 19.099 14.932 19.498 14 19.738V22H10V19.738C9.069 19.498 8.203 19.099 7.436 18.564L6 20L4 18L5.436 16.564C4.901 15.799 4.502 14.932 4.262 14H2V10H4.262C4.502 9.068 4.9 8.202 5.436 7.436L4 6L6 4L7.436 5.436C8.202 4.9 9.068 4.502 10 4.262V2H14V4.261C14.932 4.502 15.797 4.9 16.565 5.435L18 3.999L20 5.999L18.564 7.436C19.099 8.202 19.498 9.069 19.738 10ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"></path>
 				</g>
 			</defs>
 		</svg>
