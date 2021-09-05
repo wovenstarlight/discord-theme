@@ -21,10 +21,12 @@ $(document).ready( function() {
 	tippy("header .icons [data-tippy-content]", {
 		placement: "bottom",
 		theme: "default"
-	})
+	});
 
 	tippy("#navigate [data-tippy-content]", {
 		placement: "top",
 		theme: "default"
-	})
+	});
+	
+	tippy(".timestamp [data-tippy-content]", { theme: "default" });
 });

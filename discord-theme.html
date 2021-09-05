@@ -37,7 +37,13 @@
 	<meta name="color:Dark mode links" content="#00aff4"/>
 	<meta name="color:Light mode links" content="#0068e0"/>
 	<meta name="color:Discord logo" content="#5865f2"/>
-
+	
+	<meta name="color:Dark mode bold" content="#dcddde"/>
+	<meta name="color:Light mode bold" content="#2e3338"/>
+	<meta name="color:Dark mode italics" content="#dcddde"/>
+	<meta name="color:Light mode italics" content="#2e3338"/>
+	
+    <meta name="if:Dates formatted month first" content="0" />
 	<meta name="if:Show Discord tag" content="1" />
 	<meta name="text:Discord tag" content="0000" />
 
@@ -103,13 +109,13 @@
 	</header>
 
 	<div class="middle">
-	    {block:ShowDescription}{block:Description}
+		{block:ShowDescription}{block:Description}
 		<div id="description">{Description}</div>
 		{/block:Description}{/block:ShowDescription}
 		
 		{block:HasPages}
 		<nav id="channels">
-		    {block:Pages}<a href="{URL}">
+			{block:Pages}<a href="{URL}">
 				<svg width="1.5em" height="1.5em" viewBox="0 -3 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
 				<span>{Label}</span>
 			</a>{/block:Pages}
@@ -118,7 +124,7 @@
 	</div>
 
 	<div class="blogname">
-	    {block:ShowAvatar}<img src="{PortraitURL-128}" class="{AvatarShape}">{/block:ShowAvatar}
+		{block:ShowAvatar}<img src="{PortraitURL-128}" class="{AvatarShape}">{/block:ShowAvatar}
 		<div>
 			<p class="name">{Name}</p>
 			{block:IfShowDiscordTag}<p>#{text:Discord tag}</p>{/block:IfShowDiscordTag}
@@ -131,14 +137,14 @@
 		<div class="pagename">
 			<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
 			<h2>
-			    {block:HomePage}{lang:Home}{/block:HomePage}
-			    {block:AskPage}{AskLabel}{/block:AskPage}
-			    {block:SubmitPage}{SubmitLabel}{/block:SubmitPage}
-			    {block:TagPage}{lang:Showing TagResultCount posts tagged Tag}{/block:TagPage}
-			    {block:SearchPage}{lang:SearchResultCount results for SearchQuery}{/block:SearchPage}
-			    {block:PostSummary}{PostSummary}{/block:PostSummary}
-			    {block:DayPage}{lang:Posted on DayOfMonth Month Year}{/block:DayPage}
-		    </h2>
+				{block:HomePage}{lang:Home}{/block:HomePage}
+				{block:AskPage}{AskLabel}{/block:AskPage}
+				{block:SubmitPage}{SubmitLabel}{/block:SubmitPage}
+				{block:TagPage}{lang:Showing TagResultCount posts tagged Tag}{/block:TagPage}
+				{block:SearchPage}{lang:SearchResultCount results for SearchQuery}{/block:SearchPage}
+				{block:PostSummary}{PostSummary}{/block:PostSummary}
+				{block:DayPage}{lang:Posted on DayOfMonth Month Year}{/block:DayPage}
+			</h2>
 		</div>
 		<div class="icons">
 			<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.125em" height="1.125em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
@@ -151,8 +157,26 @@
 		</div>
 	</header>
 
-	<div id="post-wrapper">
-		<p>{lang:No posts found}</p>
+	<div id="allposts">
+		{block:NoPosts}<p>{lang:No posts found}</p>{/block:NoPosts}
+		
+		{block:Posts}
+		
+		{block:Date}
+		<p class="timestamp">
+			<span class="date" data-tippy-content="{DayOfMonth} {Month} {Year}">{block:IfDatesFormattedMonthFirst}{MonthNumberWithZero}/{DayOfMonthWithZero}{/block:IfDatesFormattedMonthFirst}{block:IfNotDatesFormattedMonthFirst}{DayOfMonthWithZero}/{MonthNumberWithZero}{/block:IfNotDatesFormattedMonthFirst}/{Year}</span>
+			<a class="datelink" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}" data-tippy-content="{lang:Show all posts made on this day}">
+				<svg width="1em" height="1.5em" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-date"></use></svg>
+				<span>{lang:More}</span>
+			</a>
+		</p>{/block:Date}
+		
+		{block:PinnedPostLabel}<div class="pinned">
+			<svg width="1.0625em" height="1.0625em" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-pin"></use></svg>
+			<p>{PinnedPostLabel}</p>
+		</div>{/block:PinnedPostLabel}
+		
+		{/block:Posts}
 	</div>
 
 	<div id="navigate">
@@ -228,6 +252,12 @@
 		</g>
 		<g id="img-arrow">
 			<path fill="currentColor" d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"/>
+		</g>
+		<g id="img-pin">
+			<path fill="currentColor" d="m16.908 8.39684-8.29587-8.295827-1.18584 1.184157 1.18584 1.18584-4.14834 4.1475v.00167l-1.18583-1.18583-1.185 1.18583 3.55583 3.55502-4.740831 4.74 1.185001 1.185 4.74083-4.74 3.55581 3.555 1.185-1.185-1.185-1.185 4.1475-4.14836h.0009l1.185 1.185z"/>
+		</g>
+		<g id="img-date">
+			<path stroke="#ed4245" fill="#ed4245" d="M8.16639 0.5H9C10.933 0.5 12.5 2.067 12.5 4V9C12.5 10.933 10.933 12.5 9 12.5H8.16639C7.23921 12.5 6.34992 12.1321 5.69373 11.4771L0.707739 6.5L5.69373 1.52292C6.34992 0.86789 7.23921 0.5 8.16639 0.5Z"></path>
 		</g>
 	</defs>
 </svg>

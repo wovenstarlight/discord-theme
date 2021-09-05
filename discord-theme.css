@@ -62,6 +62,10 @@ body.light {
 	--link: {color:Light mode links};
 	--paginate: #ebedef;
 }
+body.dark strong, body.dark b { color: {color:Dark mode bold}; }
+body.light strong, body.light b { color: {color:Light mode italics}; }
+body.dark em, body.dark i { color: {color:Dark mode bold}; }
+body.light em, body.light i { color: {color:Light mode italics}; }
 #servers {
 	background-color: var(--bg-dark);
 	padding: 0.25em 0 0.5em;
@@ -236,9 +240,11 @@ body.light {
 #channels a.active { background-color: var(--channels-active); }
 .blogname {
 	background-color: var(--blogname);
+	{block:ShowAvatar}
 	display: grid;
 	grid-template-columns: 2em 1fr;
 	column-gap: 0.5em;
+	{/block:ShowAvatar}
 	padding: 0.65em 0.5em;
 	max-width: 100%;
 	align-items: center;
@@ -358,10 +364,56 @@ body.controls-click .tmblr-iframe {
 	margin: 0 0.25em;
 }
 
-#post-wrapper {
+#allposts {
 	overflow: hidden scroll;
-	padding: 2em;
+	padding: 2em 1em;
 }
+.timestamp {
+    color: #ed4245;
+    font-weight: 600;
+    font-size: 0.75em;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.timestamp::before {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: thin solid #ed4245;
+    position: absolute;
+    top: 0.75em;
+}
+.timestamp .date {
+    background-color: var(--bg-standard);
+    position: relative;
+    z-index: 1;
+    padding: 0.125em 0.25em;
+}
+.timestamp .datelink {
+    color: #fff;
+    position: absolute;
+    right: 0;
+    display: flex;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.timestamp .datelink span {
+    background: #ed4245;
+    padding: 0.125em 0.375em 0.125em 0;
+    border-radius: 0 0.25em 0.25em 0;
+}
+.pinned {
+	display: grid;
+	grid-template-columns: 2.5em 1fr;
+	column-gap: 1em;
+	align-items: center;
+}
+.pinned svg { color: var(--secondary); justify-self: center; }
+.pinned p { color: var(--channels); }
 
 
 
@@ -383,7 +435,7 @@ body.controls-click .tmblr-iframe {
 		height: 100vh;
 		position: absolute;
 		left: 4.5em;
-		z-index: 1;
+		z-index: 9;
 	}
 	#sidebar:not(.active) { opacity: 0; pointer-events: none; }
 }
