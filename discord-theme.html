@@ -138,122 +138,122 @@ Credits:
 	</div>
 </div>
 
-	<header id="pagehead">
-		<div class="pagename">
-			<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
-			<h2>
-				{block:HomePage}{lang:Home}{/block:HomePage}
-				{block:TagPage}{lang:Showing TagResultCount posts tagged Tag 2}{/block:TagPage}
-				{block:SearchPage}
-				{block:SearchResults}{lang:SearchResultCount results for SearchQuery 2}{/block:SearchResults}
-				{block:NoSearchResults}{lang:No results for SearchQuery 2}{/block:NoSearchResults}
-				{/block:SearchPage}
-				{block:PostSummary}{PostSummary}{/block:PostSummary}
-				{block:DayPage}{lang:Posted on DayOfMonth Month Year}{/block:DayPage}
-			</h2>
-		</div>
-		<div class="icons">
-			<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.125em" height="1.125em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
-			<form action="/search" method="get">
-				<input type="text" name="q" value="{URLSafeSearchQuery}" placeholder="{lang:Search}"/>
-				<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
-			</form>
-			<a id="darklight" data-tippy-content="Toggle dark/light mode"><svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
-			<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
-		</div>
-	</header>
+<header id="pagehead">
+	<div class="pagename">
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
+		<h2>
+			{block:HomePage}{lang:Home}{/block:HomePage}
+			{block:TagPage}{lang:Showing TagResultCount posts tagged Tag 2}{/block:TagPage}
+			{block:SearchPage}
+			{block:SearchResults}{lang:SearchResultCount results for SearchQuery 2}{/block:SearchResults}
+			{block:NoSearchResults}{lang:No results for SearchQuery 2}{/block:NoSearchResults}
+			{/block:SearchPage}
+			{block:PostSummary}{PostSummary}{/block:PostSummary}
+			{block:DayPage}{lang:Posted on DayOfMonth Month Year}{/block:DayPage}
+		</h2>
+	</div>
+	<div class="icons">
+		<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.125em" height="1.125em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
+		<form action="/search" method="get">
+			<input type="text" name="q" value="{URLSafeSearchQuery}" placeholder="{lang:Search}"/>
+			<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
+		</form>
+		<a id="darklight" data-tippy-content="Toggle dark/light mode"><svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
+		<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
+	</div>
+</header>
 
-	<main id="allposts">
+<main id="allposts">
 
-		{block:NoPosts}<p>{lang:No posts found}</p>{/block:NoPosts}
-		{block:NoSearchResults}<p>{lang:Sorry no search results found}</p>{/block:NoSearchResults}
-		
-		{block:Posts}
+	{block:NoPosts}<p>{lang:No posts found}</p>{/block:NoPosts}
+	{block:NoSearchResults}<p>{lang:Sorry no search results found}</p>{/block:NoSearchResults}
+	
+	{block:Posts}
 
-		<section class="post">
-			{block:Date}
-			<p class="timestamp">
-				<a class="date" href="{Permalink}" data-tippy-content="{DayOfMonth} {Month} {Year}">{block:IfDatesFormattedMonthFirst}{MonthNumberWithZero}/{DayOfMonthWithZero}{/block:IfDatesFormattedMonthFirst}{block:IfNotDatesFormattedMonthFirst}{DayOfMonthWithZero}/{MonthNumberWithZero}{/block:IfNotDatesFormattedMonthFirst}/{Year}{block:IfShowTimestamp} at {block:If24HourTimestamps}{24Hour}{/block:If24HourTimestamps}{block:IfNot24HourTimestamps}{12Hour}{/block:IfNot24HourTimestamps}:{Minutes}{block:IfNot24HourTimestamps} {CapitalAmPm}{/block:IfNot24HourTimestamps}{/block:IfShowTimestamp}</a>
-				<a class="datelink" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}" data-tippy-content="{lang:Show all posts made on this day}">
-					<svg width="1em" height="1.5em" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-date"></use></svg>
-					<span>{lang:More}</span>
-				</a>
-			</p>{/block:Date}
-			
-			{block:PinnedPostLabel}<div class="pinned">
-				<svg width="1.0625em" height="1.0625em" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-pin"></use></svg>
-				<p>{PinnedPostLabel}</p>
-			</div>{/block:PinnedPostLabel}
+	<section class="post">
+		{block:Date}
+		<p class="timestamp">
+			<a class="date" href="{Permalink}" data-tippy-content="{DayOfMonth} {Month} {Year}">{block:IfDatesFormattedMonthFirst}{MonthNumberWithZero}/{DayOfMonthWithZero}{/block:IfDatesFormattedMonthFirst}{block:IfNotDatesFormattedMonthFirst}{DayOfMonthWithZero}/{MonthNumberWithZero}{/block:IfNotDatesFormattedMonthFirst}/{Year}{block:IfShowTimestamp} at {block:If24HourTimestamps}{24Hour}{/block:If24HourTimestamps}{block:IfNot24HourTimestamps}{12Hour}{/block:IfNot24HourTimestamps}:{Minutes}{block:IfNot24HourTimestamps} {CapitalAmPm}{/block:IfNot24HourTimestamps}{/block:IfShowTimestamp}</a>
+			<a class="datelink" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}" data-tippy-content="{lang:Show all posts made on this day}">
+				<svg width="1em" height="1.5em" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-date"></use></svg>
+				<span>{lang:More}</span>
+			</a>
+		</p>{/block:Date}
 		
-		
-			{block:Text}
-				{block:Reblogs}
-					<div class="rb">
-						<img src="{PortraitURL-64}" class="circle"/>
-						<div class="content">
-							<a class="username" href="{Permalink}">{Username}</a>
-							<div class="body">{Body}</div>
-						</div>
+		{block:PinnedPostLabel}<div class="pinned">
+			<svg width="1.0625em" height="1.0625em" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-pin"></use></svg>
+			<p>{PinnedPostLabel}</p>
+		</div>{/block:PinnedPostLabel}
+	
+	
+		{block:Text}
+			{block:Reblogs}
+				<div class="rb">
+					<img src="{PortraitURL-64}" class="circle"/>
+					<div class="content">
+						<a class="username" href="{Permalink}">{Username}</a>
+						<div class="body">{Body}</div>
 					</div>
-				{/block:Reblogs}
-			{/block:Text}
-			
-			
-			<div class="actions">
-				{block:NoteCount}<span class="notecount">{NoteCountWithLabel}</span>{/block:NoteCount}
-				<a href="{Permalink}" data-tippy-content="{lang:Permalink}">
-					<svg width="100%" height="100%" viewBox="3 3 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-link"></use></svg>
-				</a>
-				<a href="{ReblogURL}" data-tippy-content="Reblog">
-					<svg width="100%" height="100%" viewBox="4 4 28 28" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-reblog"></use></svg>
-				</a>
-				<a id="customlike" href="#" data-tippy-content="Like">
-					{LikeButton size=24}
-					<svg width="100%" height="100%" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
-				</a>
-				{block:RebloggedFrom}
-					<a href="{ReblogParentURL}" data-tippy-content="{lang:Reblogged from ReblogParentName}"><img src="{ReblogParentPortraitURL-40}" class="circle" /></a>
-					<a href="{ReblogRootURL}" data-tippy-content="{lang:Originally from ReblogRootName}"><img src="{ReblogRootPortraitURL-40}" class="circle" /></a>
-				{/block:RebloggedFrom}
-			</div>
-			
-			{block:HasTags}<div class="tag-wrapper">
-				{block:Tags}<a class="tag" href="{TagURL}">
-					<svg width="1em" height="1em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-tag"></use></svg>
-					{Tag}
-				</a>{/block:Tags}
-			</div>{/block:HasTags}
-		</section>
+				</div>
+			{/block:Reblogs}
+		{/block:Text}
 		
-		{/block:Posts}
-	</main>
+		
+		<div class="actions">
+			{block:NoteCount}<span class="notecount">{NoteCountWithLabel}</span>{/block:NoteCount}
+			<a href="{Permalink}" data-tippy-content="{lang:Permalink}">
+				<svg width="100%" height="100%" viewBox="3 3 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-link"></use></svg>
+			</a>
+			<a href="{ReblogURL}" data-tippy-content="Reblog">
+				<svg width="100%" height="100%" viewBox="4 4 28 28" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-reblog"></use></svg>
+			</a>
+			<a id="customlike" href="#" data-tippy-content="Like">
+				{LikeButton size=24}
+				<svg width="100%" height="100%" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
+			</a>
+			{block:RebloggedFrom}
+				<a href="{ReblogParentURL}" data-tippy-content="{lang:Reblogged from ReblogParentName}"><img src="{ReblogParentPortraitURL-40}" class="circle" /></a>
+				<a href="{ReblogRootURL}" data-tippy-content="{lang:Originally from ReblogRootName}"><img src="{ReblogRootPortraitURL-40}" class="circle" /></a>
+			{/block:RebloggedFrom}
+		</div>
+		
+		{block:HasTags}<div class="tag-wrapper">
+			{block:Tags}<a class="tag" href="{TagURL}">
+				<svg width="1em" height="1em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-tag"></use></svg>
+				{Tag}
+			</a>{/block:Tags}
+		</div>{/block:HasTags}
+	</section>
+	
+	{/block:Posts}
+</main>
 
-	<footer id="navigate"><div>
-		<svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-copyright"></use></svg>
-		<p>{Name} {CopyrightYears}</p>
-		{block:TagPage}<div class="navigation">
-		<p class="tagorder">Sort <a href="{TagURL}">newest first</a> or <a href="{TagURLChrono}">oldest first</a></p>{/block:TagPage}
-		{block:Pagination}<div class="paginate">
-			{block:PreviousPage}<a class="prev" href="{PreviousPage}" data-tippy-content="{lang:Previous}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousPage}
-			<p class="curr">{CurrentPage}</p>
-			<p>{TotalPages}</p>
-			{block:NextPage}<a class="next" href="{NextPage}" data-tippy-content="{lang:Next}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextPage}
-		</div>{/block:Pagination}
-		
-		{block:PermalinkPagination}<div class="paginate">
-			{block:PreviousPost}<a class="prev" href="{PreviousPost}" data-tippy-content="{lang:Previous post}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousPost}
-			<p>{lang:See more posts}</p>
-			{block:NextPost}<a class="next" href="{NextPost}" data-tippy-content="{lang:Next post}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextPost}
-		</div>{/block:PermalinkPagination}
-		
-		{block:DayPagination}<div class="paginate">
-			{block:PreviousDayPage}<a class="prev" href="{PreviousDayPage}" data-tippy-content="{lang:Previous day}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousDayPage}
-			<p>{lang:See more posts}</p>
-			{block:NextDayPage}<a class="next" href="{NextDayPage}" data-tippy-content="{lang:Next day}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextDayPage}
-		</div>{/block:DayPagination}
-		
-		{block:TagPage}</div>{/block:TagPage}
-	</div></footer>
+<footer id="navigate"><div>
+	<svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-copyright"></use></svg>
+	<p>{Name} {CopyrightYears}</p>
+	{block:TagPage}<div class="navigation">
+	<p class="tagorder">Sort <a href="{TagURL}">newest first</a> or <a href="{TagURLChrono}">oldest first</a></p>{/block:TagPage}
+	{block:Pagination}<div class="paginate">
+		{block:PreviousPage}<a class="prev" href="{PreviousPage}" data-tippy-content="{lang:Previous}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousPage}
+		<p class="curr">{CurrentPage}</p>
+		<p>{TotalPages}</p>
+		{block:NextPage}<a class="next" href="{NextPage}" data-tippy-content="{lang:Next}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextPage}
+	</div>{/block:Pagination}
+	
+	{block:PermalinkPagination}<div class="paginate">
+		{block:PreviousPost}<a class="prev" href="{PreviousPost}" data-tippy-content="{lang:Previous post}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousPost}
+		<p>{lang:See more posts}</p>
+		{block:NextPost}<a class="next" href="{NextPost}" data-tippy-content="{lang:Next post}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextPost}
+	</div>{/block:PermalinkPagination}
+	
+	{block:DayPagination}<div class="paginate">
+		{block:PreviousDayPage}<a class="prev" href="{PreviousDayPage}" data-tippy-content="{lang:Previous day}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousDayPage}
+		<p>{lang:See more posts}</p>
+		{block:NextDayPage}<a class="next" href="{NextDayPage}" data-tippy-content="{lang:Next day}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextDayPage}
+	</div>{/block:DayPagination}
+	
+	{block:TagPage}</div>{/block:TagPage}
+</div></footer>
 
 <svg display="none">
 	<defs>
