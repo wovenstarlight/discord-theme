@@ -485,8 +485,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	display: grid;
 	grid-template-columns: 2.5em 1fr;
 	column-gap: 1em;
-	padding: 0.5em 0;
-	margin: 0.5em 0;
+	margin: 1em 0;
 }
 .tag-wrapper { padding-bottom: 0.5em; margin-left: 3.5em; }
 .tag-wrapper .tag {
