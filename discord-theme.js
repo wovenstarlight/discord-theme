@@ -28,5 +28,5 @@ $(document).ready( function() {
 		theme: "default"
 	});
 	
-	tippy(".timestamp [data-tippy-content]", { theme: "default" });
+	tippy(".timestamp [data-tippy-content], .actions [data-tippy-content]", { theme: "default" });
 });
