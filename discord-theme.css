@@ -24,7 +24,7 @@ body {
 	background-color: var(--bg-standard);
 	color: var(--text-normal);
 	overflow: hidden;
-	--banner-header: {color:Title when header active};
+	--banner-header: {color:Title if header is showing};
 	--discord-blue: {color:Discord logo};
 	--green: {color:Servers navbar};
 	--hover: #fff;
