@@ -427,6 +427,7 @@ body.controls-click .tmblr-iframe {
 	margin: 3em 0 4em var(--left);
 	background-color: var(--bg-standard);
 	max-width: {text:Post width};
+	min-height: calc(100vh - 7em);
 }
 .post { padding: 0.5em 1em 0; margin: 0.5em 0; position: relative; }
 #allposts > p { padding: 0 1em; margin: 1em 0; }
