@@ -1,7 +1,7 @@
 /*Resets*/
 /* http://meyerweb.com/eric/tools/css/reset/ 
-v2.0 | 20110126
-License: none (public domain)
+   v2.0 | 20110126
+   License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -235,7 +235,7 @@ body.light em, body.light i { color: {color:Light mode italics}; }
 	width: 15em;
 	height: 8.4375em;
 	object-fit: cover;
-	object-position: top;
+	object-position: {select:Header image focus area};
 	top: 0;
 }
 #sidebar header.banner h1 {
@@ -421,16 +421,18 @@ body.controls-click .tmblr-iframe {
 	content: "/";
 	margin: 0 0.25em;
 }
+.ask-submit-wrapper div:not(:empty) + iframe { margin-top: 1em; }
 
 #allposts {
 	padding: 0.25em 0 1em;
 	margin: 3em 0 4em var(--left);
 	background-color: var(--bg-standard);
 	max-width: {text:Post width};
-	min-height: calc(100vh - 7em);
+	min-height: calc(100vh - 7.25em);
 }
-.post { padding: 0.5em 1em 0; margin: 0.5em 0; position: relative; }
+#allposts > * { padding: 0.5em 1em 0; margin: 0.5em 0; position: relative; }
 #allposts > p { padding: 0 1em; margin: 1em 0; }
+.ask-submit-wrapper ~ .post { display: none; }
 .post .body p { margin: 0.25em 0 0.5em; }
 .post .body p:first-child { margin-top: 0; }
 body.dark .post:hover, body.dark .post:hover .timestamp .date { background: #32353b; }
@@ -479,6 +481,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	grid-template-columns: 2.5em 1fr;
 	column-gap: 1em;
 	align-items: center;
+	margin: 0.5em 0 1.5em;
 }
 .pinned svg { color: var(--secondary); justify-self: center; }
 .pinned p { color: var(--channels); }
