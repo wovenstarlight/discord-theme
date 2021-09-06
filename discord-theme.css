@@ -53,7 +53,7 @@ a:hover { text-decoration: underline; }
 body {
 	font-family: {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: {text:Font size};
-	background-color: var(--bg-standard);
+	background-color: var(--sidebar);
 	color: var(--text-normal);
 	overflow: hidden scroll;
 	--banner-header: {color:Title if header is showing};
@@ -400,7 +400,7 @@ body.controls-click .tmblr-iframe {
 	display: flex;
 	align-items: center;
 }
-.paginate a {  padding: 0.5em; margin: -0.5em; }
+.paginate a { padding: 0.5em; margin: -0.5em; }
 .paginate a:hover { filter: drop-shadow(0 0 0.25em var(--link)); }
 .paginate .prev {
 	-webkit-transform: rotate(90deg);
@@ -422,7 +422,12 @@ body.controls-click .tmblr-iframe {
 	margin: 0 0.25em;
 }
 
-#allposts { padding: 0.25em 0 1em; margin: 3em 0 4em var(--left); }
+#allposts {
+	padding: 0.25em 0 1em;
+	margin: 3em 0 4em var(--left);
+	background-color: var(--bg-standard);
+	max-width: {text:Post width};
+}
 .post { padding: 0.5em 1em 0; margin: 0.5em 0; position: relative; }
 #allposts > p { padding: 0 1em; margin: 1em 0; }
 .post .body p { margin: 0.25em 0 0.5em; }
