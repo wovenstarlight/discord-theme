@@ -496,6 +496,12 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	font-weight: 500;
 	color: var(--header);
 }
+.username.deactivated { color: var(--secondary); }
+.username.deactivated::after {
+	color: var(--text-muted);
+	content: "#deactivated";
+	font-size: 0.8em;
+}
 .post .content { margin-top: 0.125em; }
 .post .bodyitem {
 	display: grid;
@@ -504,7 +510,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	column-gap: 1em;
 	margin: 1em 0 0.5em;
 }
-.bodyitem > img:first-child { grid-row: 1 / span 2 }
+.bodyitem > .usericon { grid-row: 1 / span 2 }
 .tag-wrapper { padding-bottom: 0.5em; margin-left: 3.5em; }
 .tag-wrapper .tag {
 	border: 1px solid transparent;
