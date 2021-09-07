@@ -32,7 +32,7 @@ body {
 	line-height: 1.2;
 }
 li {
-	margin: 0.5em 0 0.5em 1.5em;
+	margin: 0.5em 0 0.5em 2em;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -556,10 +556,10 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 
 
 .post .title {
-    font-weight: 700;
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-    color: var(--header);
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-bottom: 0.5em;
+	color: var(--header);
 }
 .post .title:not(:first-child) { margin-top: 0.5em; }
 .photo-wrapper { position: relative }
@@ -574,10 +574,10 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 }
 .photo-wrapper:hover .highres { visibility: visible }
 blockquote {
-    padding-right: 0.5em;
-    padding-left: 0.875em;
-    margin: 0.5em 0;
-    position: relative;
+	padding-right: 0.5em;
+	padding-left: 0.875em;
+	margin: 0.5em 0;
+	position: relative;
 }
 blockquote::before {
 	content: "";
@@ -590,19 +590,19 @@ blockquote::before {
 	border-radius: 0.25em;
 }
 .quotetext {
-    background-color: var(--sidebar);
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+	background-color: var(--sidebar);
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 }
 .boxquote {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .boxquote.ask {
-    display: grid;
-    grid-template-columns: 1fr 3em;
-    grid-template-rows: auto 1fr;
-    column-gap: 1.5em;
+	display: grid;
+	grid-template-columns: 1fr 3em;
+	grid-template-rows: auto 1fr;
+	column-gap: 1.5em;
 }
 .boxquote.ask .asked { color: var(--text-muted); }
 .boxquote.ask > img { grid-column: 2; grid-row: 1 / span 2; }
@@ -639,6 +639,10 @@ a.boxquote, .npf-link-block > a { border-left-color: var(--link); }
 }
 .npf-link-block > a .poster { height: 15em; }
 .npf-link-block > a .poster::before, .npf-link-block > a .poster .title { display: none; }
+.boxquote.chat { padding: 0; overflow: hidden }
+.boxquote.chat { list-style: none; margin: 0; padding: 0; }
+.boxquote.chat li { margin: 0; padding: 0.25em 0.5em; }
+.boxquote.chat li.even { background: var(--channels-hover); }
 
 
 
