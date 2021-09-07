@@ -62,7 +62,7 @@ Credits:
     <meta name="if:24 hour timestamps" content="0">
 	<meta name="if:Show Discord tag" content="1">
 	<meta name="text:Discord tag" content="0000">
-	
+
 <link rel="stylesheet" href="discord-theme.css">
 
 <style type="text/css">
@@ -163,7 +163,7 @@ Credits:
 		</h2>
 	</div>
 	<div class="icons">
-		<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.125em" height="1.125em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
+		<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.25em" height="1.25em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
 		<form action="/search" method="get">
 			<input type="text" name="q" value="{URLSafeSearchQuery}" placeholder="{lang:Search}"/>
 			<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
@@ -201,25 +201,37 @@ Credits:
 				<svg width="1em" height="1.5em" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-date"></use></svg>
 				<span>{lang:More}</span>
 			</a>
-		</p>{/block:Date}
+		</p>
+		{/block:Date}
 		
-		{block:PinnedPostLabel}<div class="pinned">
+		{block:PinnedPostLabel}
+		<div class="pinned">
 			<svg width="1.0625em" height="1.0625em" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-pin"></use></svg>
 			<p><a class="username">{Name}</a> pinned a message to this channel.</p>
-		</div>{/block:PinnedPostLabel}
-	
-	
-		{block:Text}
-			{block:Reblogs}
-				<div class="rb">
-					<img src="{PortraitURL-64}" class="circle"/>
-					<div class="content">
-						<a class="username" href="{Permalink}">{Username}</a>
-						<div class="body">{Body}</div>
+		</div>
+		{/block:PinnedPostLabel}
+	    
+		{block:Title}<h3 class="title">{Title}</h3>{/block:Title}
+		
+	    {block:NotReblog}
+			<div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<div class="content">
+					<a class="username" href="{Permalink}">{Name}</a>
+					<div class="body">{Body}</div>
+				</div>
+			</div>
+	    {/block:NotReblog}
+		{block:Reblogs}
+			<div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<div class="content">
+					<a class="username" href="{Permalink}">{Username}</a>
+					<div class="body">{Body}
 					</div>
 				</div>
-			{/block:Reblogs}
-		{/block:Text}
+			</div>
+		{/block:Reblogs}
 		
 		
 		
@@ -409,9 +421,6 @@ Credits:
 		<g id="img-tag">
 			<path fill="#3B88C3" d="M36 32c0 2.209-1.791 4-4 4H4c-2.209 0-4-1.791-4-4V4c0-2.209 1.791-4 4-4h28c2.209 0 4 1.791 4 4v28z"/>
 			<path fill="#FFF" d="M13.785 16.194h-2.667c-1.024 0-1.488-.744-1.488-1.488s.465-1.488 1.488-1.488h3.101l.682-4.992c.155-1.116.62-1.488 1.55-1.488.744 0 1.426.496 1.426 1.24 0 .465 0 .248-.062.744l-.62 4.496h2.976l.683-4.992c.155-1.116.62-1.488 1.55-1.488.744 0 1.427.496 1.427 1.24 0 .465 0 .248-.062.744l-.621 4.496h2.667c1.023 0 1.487.744 1.487 1.488s-.465 1.488-1.487 1.488h-3.101l-.496 3.535h2.666c1.023 0 1.488.744 1.488 1.488s-.465 1.488-1.488 1.488h-3.1l-.683 4.991c-.155 1.117-.62 1.488-1.55 1.488-.745 0-1.427-.496-1.427-1.24 0-.465 0-.248.062-.744l.62-4.495h-2.977l-.682 4.991c-.155 1.117-.62 1.488-1.55 1.488-.744 0-1.426-.496-1.426-1.24 0-.465 0-.248.062-.744l.62-4.495h-2.666c-1.023 0-1.488-.744-1.488-1.488s.465-1.488 1.488-1.488h3.101l.497-3.535zm2.511 3.535h2.946l.496-3.535h-2.946l-.496 3.535z"/>
-		</g>
-		<g id="img-notes">
-			<path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12C2 17.522 6.477 22 12 22C17.523 22 22 17.522 22 12C22 6.477 17.523 2 12 2ZM8 6C9.104 6 10 6.896 10 8C10 9.105 9.104 10 8 10C6.896 10 6 9.105 6 8C6 6.896 6.896 6 8 6ZM18 14C18 16.617 15.14 19 12 19C8.86 19 6 16.617 6 14V13H18V14ZM16 10C14.896 10 14 9.105 14 8C14 6.896 14.896 6 16 6C17.104 6 18 6.896 18 8C18 9.105 17.104 10 16 10Z"/>
 		</g>
 		<g id="img-link">
 			<path fill="currentColor" d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24zm2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"/>

@@ -343,8 +343,11 @@ img.square { border-radius: 0.15em; }
 .pagename svg { color: var(--text-muted); margin-right: 0.5em; flex-shrink: 0;}
 .pagename .tag::before, .pagename .tag::after, .pagename .search_query::before, .pagename .search_query::after { content: '"' ; }
 .tmblr-iframe {
+	background: linear-gradient(90deg, transparent 0, var(--bg-standard) 0.6em);
 	z-index: 999999999!important;
-	margin-top: 3em;
+	transform: scale(0.8);
+	margin-right: 15.5em;
+	margin-top: -0.25em;
 	opacity: 0;
 	visibility: hidden;
 	transition-property: opacity;
@@ -352,8 +355,12 @@ img.square { border-radius: 0.15em; }
 #tmblr-controls-toggle, .tmblr-iframe { transition: .3s; }
 body.controls-click #tmblr-controls-toggle { transform: rotate(65deg); }
 body.controls-click .tmblr-iframe {
-	opacity: 1.0;
+	opacity: 1;
 	visibility: visible;
+}
+body.light .tmblr-iframe {
+	background: linear-gradient(90deg, transparent 0, #000 0.6em); /* background has to be black so it'll be inverted into var(--bg-standard): #fff */
+	filter: invert(1);
 }
 .icons > *:not(:last-child) { margin-right: 1.25em; }
 .icons svg { cursor: pointer; color: var(--secondary); }
@@ -490,7 +497,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	color: var(--header);
 }
 .post .body { margin-top: 0.125em; }
-.post .rb {
+.post .bodyitem {
 	display: grid;
 	grid-template-columns: 2.5em 1fr;
 	column-gap: 1em;
@@ -539,6 +546,13 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 .post .actions a:hover { background: var(--channels-hover); }
 #customlike .like_button.liked ~ svg { color: #ed4245; }
 
+
+.post .title {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    color: var(--header);
+}
 blockquote { padding: 0 0.5em 0.125em 0.875em; position: relative; }
 blockquote::before {
 	content: "";
