@@ -213,68 +213,96 @@ Credits:
 	    
 		{block:Title}<h3 class="title">{Title}</h3>{/block:Title}
 		
+		<div class="postbody">
+		
+	    {block:Answer}
+			<div class="bodyitem">
+				<img src="{block:NotReblog}{PortraitURL-64}{/block:NotReblog}{block:Answerer}{AnswererPortraitURL-64}{/block:Answerer}" class="circle"/>
+				<div class="content-wrapper">
+					<a class="username" href="{Permalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:Answerer}{Answerer}{/block:Answerer}</a>
+					<div class="content">
+                	    <div class="boxquote ask">
+                		    <p class="asked">{lang:Asker asked 2}:</p>
+                		    <div>{Question}</div>
+                		    <img src="{AskerPortraitURL-96}" class="square">
+                	    </div>
+                	    {Answer}
+				    </div>
+				</div>
+			</div>
+			
+    		{block:Reblogs}
+    			<div class="bodyitem">
+    				<img src="{PortraitURL-64}" class="circle"/>
+    				<div class="content-wrapper">
+    					<a class="username" href="{Permalink}">{Username}</a>
+    					<div class="content">{Body}</div>
+    				</div>
+    			</div>
+    		{/block:Reblogs}
+	    {/block:Answer}
 	    {block:NotReblog}
 			<div class="bodyitem">
 				<img src="{PortraitURL-64}" class="circle"/>
-				<div class="content">
-					<a class="username" href="{Permalink}">{Name}</a>
-					<div class="body">{Body}</div>
+				<div class="content-wrapper">
+					<a class="username" href="{Permalink}">{PostAuthorName}</a>
+					<div class="content">{Body}</div>
 				</div>
 			</div>
 	    {/block:NotReblog}
 		{block:Reblogs}
 			<div class="bodyitem">
 				<img src="{PortraitURL-64}" class="circle"/>
-				<div class="content">
+				<div class="content-wrapper">
 					<a class="username" href="{Permalink}">{Username}</a>
-					<div class="body">{Body}
+					<div class="content">
+					    {block:Text}
+					    {Body}
+					    {/block:Text}
+					    
+					    {block:Photo}
+					    <div class="photo-wrapper">
+					    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+					    {block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
+					    </div>
+					    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+					    {/block:Photo}
+					    
+					    {block:Panorama}
+					    <div class="photo-wrapper">
+					    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+					    {block:HighRes}<a class="highres" href="{PhotoURL-Panorama}">{lang:View high resolution}</a>{/block:HighRes}
+					    </div>
+					    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+					    {/block:Panorama}
+					    
+					    {block:Photoset}
+					    {Photoset}
+					    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+					    {/block:Photoset}
+					    
+					    {block:Quote}
+					    <blockquote class="quotetext">{Quote}</blockquote>
+					    {block:Source}<div>— {Source}</div>{/block:Source}
+					    {/block:Quote}
+					    
+					    {block:Link}
+					        <a href="{URL}" class="boxquote">
+					            <div class="linkhead" {Target}>{Name}</div>
+					            {block:Excerpt}<div class="linkexcerpt">{Excerpt}</div>{/block:Excerpt}
+					            {block:Thumbnail}<img src="{Thumbnail}" />{/block:Thumbnail}
+					        </a>
+					        {block:Description}{Description}{/block:Description}
+					    {/block:Link}
 					</div>
 				</div>
 			</div>
 		{/block:Reblogs}
-		
+		</div>
 		
 		
 		<!--<ol>
-		{block:Photo}
-			<li class="post photo">
-				<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-
-				{block:Caption}
-					<div class="caption">{Caption}</div>
-				{/block:Caption}
-			</li>
-		{/block:Photo}{block:Panorama}
-			<li class="post panorama">
-				{LinkOpenTag}
-					<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-				{LinkCloseTag}{block:Caption}
-					<div class="caption">{Caption}</div>
-				{/block:Caption}
-			</li>
-		{/block:Panorama}{block:Photoset}
-			<li class="post photoset">
-				{Photoset-500}{block:Caption}
-					<div class="caption">{Caption}</div>
-				{/block:Caption}
-			</li>
-		{/block:Photoset}{block:Quote}
-			<li class="post quote">
-				"{Quote}"
-
-				{block:Source}
-					<div class="source">{Source}</div>
-				{/block:Source}
-			</li>
-		{/block:Quote}{block:Link}
-			<li class="post link">
-				<a href="{URL}" class="link" {Target}>{Name}</a>
-
-				{block:Description}
-					<div class="description">{Description}</div>
-				{/block:Description}
-			</li>
-		{/block:Link}{block:Chat}
+		{block:Chat}
 			<li class="post chat">
 				{block:Title}
 					<h3><a href="{Permalink}">{Title}</a></h3>
@@ -305,7 +333,7 @@ Credits:
 		{/block:Audio}
 		</ol> -->
 
-
+        {block:Date}
 		<div class="actions">
 			{block:NoteCount}<span class="notecount">{NoteCountWithLabel}</span>{/block:NoteCount}
 			<a href="{Permalink}" data-tippy-content="{lang:Permalink}">
@@ -323,6 +351,7 @@ Credits:
 				<a href="{ReblogRootURL}" data-tippy-content="{lang:Originally from ReblogRootName}"><img src="{ReblogRootPortraitURL-40}" class="circle" /></a>
 			{/block:RebloggedFrom}
 		</div>
+		{/block:Date}
 		
 		{block:HasTags}<div class="tag-wrapper">
 			{block:Tags}<a class="tag" href="{TagURL}">

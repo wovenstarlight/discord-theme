@@ -437,11 +437,11 @@ body.light .tmblr-iframe {
 	max-width: {text:Post width};
 	min-height: calc(100vh - 7.25em);
 }
-#allposts > * { padding: 0.5em 1em 0; margin: 0.5em 0; position: relative; }
+#allposts > * { padding: 0.5em 1em 0.25em; margin: 0.5em 0; position: relative; }
 #allposts > p { padding: 0 1em; margin: 1em 0; }
 .ask-submit-wrapper ~ .post { display: none; }
-.post .body p { margin: 0.25em 0 0.5em; }
-.post .body p:first-child { margin-top: 0; }
+.post .content p { margin: 0.25em 0 0.5em; }
+.post .content p:first-child { margin-top: 0; }
 body.dark .post:hover, body.dark .post:hover .timestamp .date { background: #32353b; }
 body.light .post:hover, body.light .post:hover .timestamp .date { background: #fafafa; }
 .timestamp {
@@ -496,12 +496,12 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	font-weight: 500;
 	color: var(--header);
 }
-.post .body { margin-top: 0.125em; }
+.post .content { margin-top: 0.125em; }
 .post .bodyitem {
 	display: grid;
 	grid-template-columns: 2.5em 1fr;
 	column-gap: 1em;
-	margin: 1em 0;
+	margin: 1em 0 0.5em;
 }
 .tag-wrapper { padding-bottom: 0.5em; margin-left: 3.5em; }
 .tag-wrapper .tag {
@@ -550,19 +550,87 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 .post .title {
     font-weight: 700;
     font-size: 1.5em;
-    margin: 0.5em 0;
+    margin-bottom: 0.5em;
     color: var(--header);
 }
-blockquote { padding: 0 0.5em 0.125em 0.875em; position: relative; }
+.post .title:not(:first-child) { margin-top: 0.5em; }
+.photo-wrapper { position: relative }
+.photo-wrapper .highres {
+	position: absolute;
+	bottom: 0.5em;
+	left: 0.5em;
+	padding: 0.5em;
+	background: var(--bg-dark);
+	border-radius: 0.5em;
+	visibility: hidden;
+}
+.photo-wrapper:hover .highres { visibility: visible }
+blockquote {
+    padding-right: 0.5em;
+    padding-left: 0.875em;
+    margin: 0.5em 0;
+    position: relative;
+}
 blockquote::before {
 	content: "";
 	position: absolute;
 	left: 0;
+	top: 0;
 	height: 100%;
 	border: 0.125em solid;
 	opacity: 0.25;
 	border-radius: 0.25em;
 }
+.quotetext {
+    background-color: var(--sidebar);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+.boxquote {
+    display: flex;
+    flex-direction: column;
+}
+.boxquote.ask {
+    display: grid;
+    grid-template-columns: 1fr 3em;
+    grid-template-rows: auto 1fr;
+    column-gap: 1.5em;
+}
+.boxquote.ask .asked { color: var(--text-muted); }
+.boxquote.ask > img { grid-column: 2; grid-row: 1 / span 2; }
+.boxquote.ask p, .boxquote.ask div { font-size: 0.95em; }
+.boxquote,
+.npf-link-block > a {
+	border-left: 4px solid var(--bg-dark);
+	border-radius: 0.25em;
+	margin: 0.5em 0;
+	padding: 0.75em 1em 1em;
+	max-width: 27em;
+	background: var(--sidebar)
+}
+a.boxquote, .npf-link-block > a { border-left-color: var(--link); }
+.boxquote .linkhead, .npf-link-block > a .bottom .description { font-weight: 600; }
+.boxquote img, .npf-link-block > a .poster { margin: 0.5em 0 0.25em; }
+.boxquote .linkexcerpt { font-size: 0.875em; margin: 0.75em 0; color: var(--text-normal); }
+.npf-link-block {
+	border: none !important;
+	margin: 0 !important;
+	justify-content: left !important;
+}
+.npf-link-block > a,
+.npf-link-block > a .bottom {
+	display: flex;
+	flex-direction: column-reverse;
+}
+.npf-link-block > a .bottom { padding: 0; }
+.npf-link-block > a .bottom .site-name {
+	margin: 0;
+	font-size: 0.75em;
+	font-weight: 400;
+	text-transform: none;
+}
+.npf-link-block > a .poster { height: 15em; }
+.npf-link-block > a .poster::before, .npf-link-block > a .poster .title { display: none; }
 
 
 
