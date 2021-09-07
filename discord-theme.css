@@ -442,7 +442,8 @@ body.light .tmblr-iframe {
 #allposts > * { padding: 0.5em 1em 0.25em; margin: 0.5em 0; position: relative; }
 #allposts > p { padding: 0 1em; margin: 1em 0; }
 .ask-submit-wrapper ~ .post { display: none; }
-.post .content iframe { max-width: 600px; margin: 0.25em 0 }
+.post .content .tumblr_video_iframe, .post .content video { max-width: min(500px, 100%); margin: 0.25em 0 }
+.post .content video { max-height: 600px; width: auto; height: auto; }
 .post .content p { margin: 0.25em 0 0.5em; }
 body.dark .post:hover, body.dark .post:hover .timestamp .date { background: #32353b; }
 body.light .post:hover, body.light .post:hover .timestamp .date { background: #fafafa; }
@@ -493,7 +494,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	margin: 0.5em 0 1.5em;
 }
 .system svg { color: var(--secondary); justify-self: center; }
-.system p { color: var(--channels); }
+.system.pin p { color: var(--channels); }
 .post .username {
 	font-weight: 500;
 	color: var(--header);
