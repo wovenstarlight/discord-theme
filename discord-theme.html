@@ -218,86 +218,199 @@ Credits:
 	    {block:Answer}
 			<div class="bodyitem">
 				<img src="{block:NotReblog}{PortraitURL-64}{/block:NotReblog}{block:Answerer}{AnswererPortraitURL-64}{/block:Answerer}" class="circle"/>
-				<div class="content-wrapper">
-					<a class="username" href="{Permalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:Answerer}{Answerer}{/block:Answerer}</a>
-					<div class="content">
-                	    <div class="boxquote ask">
-                		    <p class="asked">{lang:Asker asked 2}:</p>
-                		    <div>{Question}</div>
-                		    <img src="{AskerPortraitURL-96}" class="square">
-                	    </div>
-                	    {Answer}
-				    </div>
-				</div>
+				<a class="username" href="{Permalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootName}{/block:RebloggedFrom}</a>
+				<div class="content">
+            	    <div class="boxquote ask">
+            		    <p class="asked">{lang:Asker asked 2}:</p>
+            		    <div>{Question}</div>
+            		    <img src="{AskerPortraitURL-96}" class="square">
+            	    </div>
+            	    {Answer}
+			    </div>
 			</div>
 			
     		{block:Reblogs}
-    			<div class="bodyitem">
-    				<img src="{PortraitURL-64}" class="circle"/>
-    				<div class="content-wrapper">
-    					<a class="username" href="{Permalink}">{Username}</a>
-    					<div class="content">{Body}</div>
-    				</div>
-    			</div>
+			<div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{Username}</a>
+				<div class="content">{Body}</div>
+			</div>
     		{/block:Reblogs}
 	    {/block:Answer}
-	    {block:NotReblog}
+	    
+	    {block:Text}
+    	    {block:NotReblog}
 			<div class="bodyitem">
 				<img src="{PortraitURL-64}" class="circle"/>
-				<div class="content-wrapper">
-					<a class="username" href="{Permalink}">{PostAuthorName}</a>
-					<div class="content">{Body}</div>
-				</div>
+				<a class="username" href="{Permalink}">{PostAuthorName}</a>
+				<div class="content">{Body}</div>
 			</div>
-	    {/block:NotReblog}
-		{block:Reblogs}
+    	    {/block:NotReblog}
+    	    {block:Reblogs}
+    	    <div class="bodyitem">
+    			<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{Username}</a>
+				<div class="content">{Body}</div>
+    		</div>
+    		{/block:Reblogs}
+	    {/block:Text}
+	    
+	    {block:Photo}
+	        {block:NotReblog}
 			<div class="bodyitem">
 				<img src="{PortraitURL-64}" class="circle"/>
-				<div class="content-wrapper">
-					<a class="username" href="{Permalink}">{Username}</a>
-					<div class="content">
-					    {block:Text}
-					    {Body}
-					    {/block:Text}
-					    
-					    {block:Photo}
-					    <div class="photo-wrapper">
-					    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
-					    {block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
-					    </div>
-					    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
-					    {/block:Photo}
-					    
-					    {block:Panorama}
-					    <div class="photo-wrapper">
-					    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
-					    {block:HighRes}<a class="highres" href="{PhotoURL-Panorama}">{lang:View high resolution}</a>{/block:HighRes}
-					    </div>
-					    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
-					    {/block:Panorama}
-					    
-					    {block:Photoset}
-					    {Photoset}
-					    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
-					    {/block:Photoset}
-					    
-					    {block:Quote}
-					    <blockquote class="quotetext">{Quote}</blockquote>
-					    {block:Source}<div>— {Source}</div>{/block:Source}
-					    {/block:Quote}
-					    
-					    {block:Link}
-					        <a href="{URL}" class="boxquote">
-					            <div class="linkhead" {Target}>{Name}</div>
-					            {block:Excerpt}<div class="linkexcerpt">{Excerpt}</div>{/block:Excerpt}
-					            {block:Thumbnail}<img src="{Thumbnail}" />{/block:Thumbnail}
-					        </a>
-					        {block:Description}{Description}{/block:Description}
-					    {/block:Link}
-					</div>
+				<a class="username" href="{Permalink}">{PostAuthorName}</a>
+				<div class="content">
+				    <div class="photo-wrapper">
+				    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+				    {block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
+				    </div>
+				    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
 				</div>
 			</div>
-		{/block:Reblogs}
+    	    {/block:NotReblog}
+    	    {block:Reblogs}
+    	    <div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{Username}</a>
+				<div class="content">
+				
+			        {block:isOriginalEntry}
+				    <div class="photo-wrapper">
+				    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+				    {block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
+				    </div>
+				    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+				    {/block:isOriginalEntry}
+				    
+				    {block:IsNotOriginalEntry}
+				    <div class="content">{Body}</div>
+				    {/block:IsNotOriginalEntry}
+				    
+				</div>
+			</div>
+    		{/block:Reblogs}
+	    {/block:Photo}
+	    
+	    {block:Panorama}
+	        {block:NotReblog}
+			<div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{PostAuthorName}</a>
+				<div class="content">
+				    <div class="photo-wrapper">
+				    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+				    {block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
+				    </div>
+				    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+				</div>
+			</div>
+    	    {/block:NotReblog}
+    	    {block:Reblogs}
+    	    <div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{Username}</a>
+				<div class="content">
+				
+			        {block:isOriginalEntry}
+				    <div class="photo-wrapper">
+				    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+				    {block:HighRes}<a class="highres" href="{PhotoURL-Panorama}">{lang:View high resolution}</a>{/block:HighRes}
+				    </div>
+				    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+				    {/block:isOriginalEntry}
+				    
+				    {block:IsNotOriginalEntry}
+				    <div class="content">{Body}</div>
+				    {/block:IsNotOriginalEntry}
+				    
+				</div>
+			</div>
+    		{/block:Reblogs}
+	    {/block:Panorama}
+	    
+	    {block:Photoset}
+	        {block:NotReblog}
+			<div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{PostAuthorName}</a>
+				<div class="content">
+				    <div class="photo-wrapper">
+				    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+				    {block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
+				    </div>
+				    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+				</div>
+			</div>
+    	    {/block:NotReblog}
+    	    {block:Reblogs}
+    	    <div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{Username}</a>
+				<div class="content">
+				
+			        {block:isOriginalEntry}
+				    <div class="photo-wrapper">
+				    {Photoset}
+				    </div>
+				    {block:Caption}<blockquote>{Body}</blockquote>{/block:Caption}
+				    {/block:isOriginalEntry}
+				    
+				    {block:IsNotOriginalEntry}
+				    <div class="content">{Body}</div>
+				    {/block:IsNotOriginalEntry}
+				    
+				</div>
+			</div>
+    		{/block:Reblogs}
+	    {/block:Photoset}
+	    
+	    {block:Quote}
+			<div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{PostAuthorName}</a>
+				<div class="content">
+				    <blockquote class="quotetext">{Quote}</blockquote>
+				    {block:Source}<div>— {Source}</div>{/block:Source}
+				</div>
+			</div>
+	    {/block:Quote}
+	    
+	    {block:Link}
+    	    {block:NotReblog}
+			<div class="bodyitem">
+				<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{PostAuthorName}</a>
+				<div class="content">
+			        <a href="{URL}" class="boxquote">
+			            <div class="linkhead" {Target}>{Name}</div>
+			            {block:Excerpt}<div class="linkexcerpt">{Excerpt}</div>{/block:Excerpt}
+			            {block:Thumbnail}<img src="{Thumbnail}" />{/block:Thumbnail}
+			        </a>
+			        {block:Description}{Description}{/block:Description}
+				</div>
+			</div>
+    	    {/block:NotReblog}
+    	    {block:Reblogs}
+    	    <div class="bodyitem">
+    			<img src="{PortraitURL-64}" class="circle"/>
+				<a class="username" href="{Permalink}">{Username}</a>
+				<div class="content">
+				    {block:isOriginalEntry}
+				    <a href="{URL}" class="boxquote">
+			            <div class="linkhead" {Target}>{Name}</div>
+			            {block:Excerpt}<div class="linkexcerpt">{Excerpt}</div>{/block:Excerpt}
+			            {block:Thumbnail}<img src="{Thumbnail}" />{/block:Thumbnail}
+			        </a>
+			        {block:Description}{Description}{/block:Description}
+				    {/block:isOriginalEntry}
+				    
+				    {block:isNotOriginalEntry}{Body}{/block:isNotOriginalEntry}
+				</div>
+    		</div>
+    		{/block:Reblogs}
+	    {/block:Link}
+	    
 		</div>
 		
 		
