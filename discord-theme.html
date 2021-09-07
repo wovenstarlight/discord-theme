@@ -1,13 +1,13 @@
 <!-- 
-THEME 1: DISCORD
+	THEME 1: DISCORD
 
-Theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
+	Theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
 
-Credits:
-	Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
-	Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
-	Icons from Font Awesome: https://fontawesome.com
-	Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
+	Credits:
+		Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
+		Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
+		Icons from Font Awesome: https://fontawesome.com
+		Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
 -->
 
 <!DOCTYPE html>
@@ -22,7 +22,11 @@ Credits:
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
 	
 	<meta name="if:Show Random post link" content="1">
+	<meta name="if:Show search bar" content="1">
 	<meta name="if:Show Archive link" content="1">
+	<meta name="if:Show Reblog buttons" content="1">
+	<meta name="if:Show Like buttons" content="1">
+	<meta name="if:Show tags" content="1">
 	
 	<meta name="text:FAQ" content="">
 	<meta name="text:Submission guidelines" content="">
@@ -55,6 +59,7 @@ Credits:
 	<meta name="color:Dark mode italics" content="#dcddde">
 	<meta name="color:Light mode italics" content="#2e3338">
 	
+	<meta name="if:Show dates" content="1">
 	<meta name="color:Timestamps and post divider" content="#ed4245">
 	<meta name="color:Post divider More link" content="#fff">
 	<meta name="if:Dates formatted month first" content="0">
@@ -74,7 +79,7 @@ Credits:
 </head>
 
 
-<body class="{select:Default theme}">
+<body class="{select:Default theme} {block:IfNotShowSearchBar}no-search{/block:IfNotShowSearchBar}">
 
 <nav id="servers">
 	<a href="/" data-tippy-content="{lang:Home}" class="{block:HomePage}active{/block:HomePage}">
@@ -163,11 +168,13 @@ Credits:
 		</h2>
 	</div>
 	<div class="icons">
-		<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.25em" height="1.25em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
+		<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
+		{block:IfShowSearchBar}
 		<form action="/search" method="get">
 			<input type="text" name="q" value="{URLSafeSearchQuery}" placeholder="{lang:Search}"/>
 			<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
 		</form>
+		{/block:IfShowSearchBar}
 		<a id="darklight" data-tippy-content="Toggle dark/light mode"><svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
 		<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
 	</div>
@@ -191,21 +198,23 @@ Credits:
 	{block:IndexPage}{block:NoPosts}<p>{lang:No posts found}</p>{/block:NoPosts}{/block:IndexPage}
 	{block:SearchPage}{block:NoSearchResults}<p>{lang:Sorry no search results found}</p>{/block:NoSearchResults}{/block:SearchPage}
 	
-	{block:Posts}
+	{block:Posts inlineMediaWidth="500"}
 
 	<section class="post">
 		{block:Date}
 		<p class="timestamp">
+			{block:IfShowDates}
 			<a class="date" href="{Permalink}" data-tippy-content="{DayOfMonth} {Month} {Year}">{block:IfDatesFormattedMonthFirst}{MonthNumberWithZero}/{DayOfMonthWithZero}{/block:IfDatesFormattedMonthFirst}{block:IfNotDatesFormattedMonthFirst}{DayOfMonthWithZero}/{MonthNumberWithZero}{/block:IfNotDatesFormattedMonthFirst}/{Year}{block:IfShowTimestamp} at {block:If24HourTimestamps}{24Hour}{/block:If24HourTimestamps}{block:IfNot24HourTimestamps}{12Hour}{/block:IfNot24HourTimestamps}:{Minutes}{block:IfNot24HourTimestamps} {CapitalAmPm}{/block:IfNot24HourTimestamps}{/block:IfShowTimestamp}</a>
 			<a class="datelink" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}" data-tippy-content="{lang:Show all posts made on this day}">
 				<svg width="1em" height="1.5em" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-date"></use></svg>
 				<span>{lang:More}</span>
 			</a>
+			{/block:IfShowDates}
 		</p>
 		{/block:Date}
 		
 		{block:PinnedPostLabel}
-		<div class="pinned">
+		<div class="system">
 			<svg width="1.0625em" height="1.0625em" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-pin"></use></svg>
 			<p><a class="username">{Name}</a> pinned a message to this channel.</p>
 		</div>
@@ -220,38 +229,63 @@ Credits:
 		{block:Text}
 			{block:NotReblog}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
-				<div class="content">{Body}</div>
+				<div class="content">
+					{Body}
+				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:NotReblog}
+			{block:RebloggedFrom}
 			{block:Reblogs}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
 				<div class="content">{Body}</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:Reblogs}
+			{/block:RebloggedFrom}
 		{/block:Text}
 		
 		{block:Photo}
 			{block:NotReblog}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
 				<div class="content">
 					<div class="photo-wrapper">
 					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
 					{block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
 					</div>
-					{block:Caption}<div>{Body}</div>{/block:Caption}
+					
+					{Body}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:NotReblog}
 			{block:Reblogs}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
 				<div class="content">
 				
 					{block:isOriginalEntry}
@@ -259,36 +293,47 @@ Credits:
 					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
 					{block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
 					</div>
-					{block:Caption}<div>{Body}</div>{/block:Caption}
 					{/block:isOriginalEntry}
 					
-					{block:IsNotOriginalEntry}
-					<div class="content">{Body}</div>
-					{/block:IsNotOriginalEntry}
+					{Body}
 					
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:Reblogs}
 		{/block:Photo}
 		
 		{block:Panorama}
 			{block:NotReblog}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
 				<div class="content">
 					<div class="photo-wrapper">
 					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
 					{block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
 					</div>
-					{block:Caption}<div>{Body}</div>{/block:Caption}
+					
+					{Body}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:NotReblog}
 			{block:Reblogs}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
 				<div class="content">
 				
 					{block:isOriginalEntry}
@@ -296,75 +341,96 @@ Credits:
 					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
 					{block:HighRes}<a class="highres" href="{PhotoURL-Panorama}">{lang:View high resolution}</a>{/block:HighRes}
 					</div>
-					{block:Caption}<div>{Body}</div>{/block:Caption}
 					{/block:isOriginalEntry}
 					
-					{block:IsNotOriginalEntry}
-					<div class="content">{Body}</div>
-					{/block:IsNotOriginalEntry}
+					{Body}
 					
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:Reblogs}
 		{/block:Panorama}
 		
 		{block:Photoset}
 			{block:NotReblog}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
 				<div class="content">
 					<div class="photo-wrapper">
 					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
 					{block:HighRes}<a class="highres" href="{PhotoURL-HighRes}">{lang:View high resolution}</a>{/block:HighRes}
 					</div>
-					{block:Caption}<div>{Body}</div>{/block:Caption}
+					{Body}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:NotReblog}
+			{block:RebloggedFrom}
 			{block:Reblogs}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
 				<div class="content">
 				
 					{block:isOriginalEntry}
 					<div class="photo-wrapper">
 					{Photoset}
 					</div>
-					{block:Caption}<div>{Body}</div>{/block:Caption}
 					{/block:isOriginalEntry}
 					
-					{block:IsNotOriginalEntry}
-					<div class="content">{Body}</div>
-					{/block:IsNotOriginalEntry}
+					{Body}
 					
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:Reblogs}
+			{/block:RebloggedFrom}
 		{/block:Photoset}
 		
 		{block:Quote}
 			<div class="bodyitem">
 				{block:NotReblog}
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
 				{/block:NotReblog}
 				{block:RebloggedFrom}
-				<img src="{ReblogRootPortraitURL-64}" class="circle usericon"/>
-				<span class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}">{ReblogRootName}</span>
+				<a href="{ReblogRootURL}" class="circle usericon"><img src="{ReblogRootPortraitURL-64}" class="circle"/></a>
+				<a href="{ReblogRootURL}" class="username">{ReblogRootName}</a>
 				{/block:RebloggedFrom}
 				<div class="content">
 					<blockquote class="quotetext">{Quote}</blockquote>
 					{block:Source}<div>— {Source}</div>{/block:Source}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 		{/block:Quote}
 		
 		{block:Link}
 			{block:NotReblog}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
 				<div class="content">
 					<a href="{URL}" class="boxquote">
@@ -375,11 +441,20 @@ Credits:
 					{block:Description}{Description}{/block:Description}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:NotReblog}
+			
+			{block:RebloggedFrom}
 			{block:Reblogs}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
 				<div class="content">
 					{block:isOriginalEntry}
 					<a href="{URL}" class="boxquote">
@@ -387,24 +462,30 @@ Credits:
 						{block:Excerpt}<div class="linkexcerpt">{Excerpt}</div>{/block:Excerpt}
 						{block:Thumbnail}<img src="{Thumbnail}" />{/block:Thumbnail}
 					</a>
-					{block:Description}{Description}{/block:Description}
 					{/block:isOriginalEntry}
 					
-					{block:isNotOriginalEntry}{Body}{/block:isNotOriginalEntry}
+					{Body}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:Reblogs}
+			{/block:RebloggedFrom}
 		{/block:Link}
 		
 		{block:Chat}
 			<div class="bodyitem">
 				{block:NotReblog}
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
 				{/block:NotReblog}
 				{block:RebloggedFrom}
-				<img src="{ReblogRootPortraitURL-64}" class="circle usericon"/>
-				<span class="username">{ReblogRootName}</span>
+				<a href="{ReblogRootURL}" class="circle usericon"><img src="{ReblogRootPortraitURL-64}" class="circle"/></a>
+				<a href="{ReblogRootURL}" class="username">{ReblogRootName}</a>
 				{/block:RebloggedFrom}
 				<div class="content">
 					<ul class="boxquote chat">
@@ -414,63 +495,99 @@ Credits:
 					</ul>
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 		{/block:Chat}
 		
 		{block:Audio}
+			{block:NotReblog}
 			<div class="bodyitem">
-				{block:NotReblog}
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
-				{/block:NotReblog}
-				{block:RebloggedFrom}
-				<img src="{ReblogRootPortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="ReblogRootURL">{ReblogRootName}</a>
-				{/block:RebloggedFrom}
 				<div class="content">
 					{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}
+					{block:Caption}{Caption}{/block:Caption}
+				</div>
+			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
+			{/block:NotReblog}
+			
+			{block:RebloggedFrom}
+			{block:Reblogs}
+			<div class="bodyitem">
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
+				<div class="content">
+					{block:isOriginalEntry}{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}{/block:isOriginalEntry}
 					{Body}
 				</div>
 			</div>
-			
-			{block:Reblogs}
-			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
-				<div class="content">{Body}</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
 			</div>
+			{/block:More}
 			{/block:Reblogs}
+			{/block:RebloggedFrom}
 		{/block:Audio}
 		
 		{block:Video}
+			{block:NotReblog}
 			<div class="bodyitem">
-				{block:NotReblog}
-				<img src="{PortraitURL-64}" class="circle usericon"/>
+				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
 				<a class="username" href="{Permalink}">{PostAuthorName}</a>
-				{/block:NotReblog}
-				{block:RebloggedFrom}
-				<img src="{ReblogRootPortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="ReblogRootURL">{ReblogRootName}</a>
-				{/block:RebloggedFrom}
 				<div class="content">
 					{Video-700}
-					{block:NotReblog}{block:Caption}{Caption}{/block:Caption}{/block:NotReblog}
-					{block:RebloggedFrom}{Body}{/block:RebloggedFrom}
+					{block:Caption}{Caption}{/block:Caption}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
+			{/block:NotReblog}
 			
+			{block:RebloggedFrom}
 			{block:Reblogs}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
-				<div class="content">{Body}</div>
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
+				<div class="content">
+					{block:isOriginalEntry}
+					{Video-700}
+					{/block:isOriginalEntry}
+					
+					{Body}
+				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:Reblogs}
+			{/block:RebloggedFrom}
 		{/block:Video}
 		
 		{block:Answer}
 			<div class="bodyitem">
 				<img src="{block:NotReblog}{PortraitURL-64}{/block:NotReblog}{block:Answerer}{AnswererPortraitURL-64}{/block:Answerer}" class="circle usericon"/>
-				<a class="username" href="{Permalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootName}{/block:RebloggedFrom}</a>
+				<a class="username" href="{Permpoalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootName}{/block:RebloggedFrom}</a>
 				<div class="content">
 					<div class="boxquote ask">
 						<p class="asked">{lang:Asker asked 2}:</p>
@@ -480,13 +597,26 @@ Credits:
 					{Answer}
 				</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			
 			{block:Reblogs}
 			<div class="bodyitem">
-				<img src="{PortraitURL-64}" class="circle usericon"/>
-				<a class="username {block:IsDeactivated}deactivated{/block:IsDeactivated}" href="{Permalink}">{Username}</a>
+				{block:IsActive}<a href="{Permalink}" class="circle usericon">{/block:IsActive}<img src="{PortraitURL-64}" class="circle {block:IsDeactivated}usericon{/block:IsDeactivated}"/>{block:IsActive}</a>{/block:IsActive}
+				{block:IsActive}<a class="username" href="{Permalink}">{Username}</a>{/block:IsActive}
+				{block:IsDeactivated}<span class="username deactivated" href="{Permalink}">{Username}</span>{/block:IsDeactivated}
 				<div class="content">{Body}</div>
 			</div>
+			{block:More}
+			<div class="system">
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<p><a href="Permalink">{lang:Keep reading}</a></p>
+			</div>
+			{/block:More}
 			{/block:Reblogs}
 		{/block:Answer}
 		
@@ -498,15 +628,19 @@ Credits:
 		<div class="actions">
 			{block:NoteCount}<span class="notecount">{NoteCountWithLabel}</span>{/block:NoteCount}
 			<a href="{Permalink}" data-tippy-content="{lang:Permalink}">
-				<svg width="100%" height="100%" viewBox="3 3 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-link"></use></svg>
+				<svg width="100%" height="100%" viewBox="3 3 18 18" xmlns="http://wwwsw3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-link"></use></svg>
 			</a>
+			{block:IfShowReblogButtons}
 			<a href="{ReblogURL}" data-tippy-content="Reblog">
 				<svg width="100%" height="100%" viewBox="4 4 28 28" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-reblog"></use></svg>
 			</a>
+			{/block:IfShowReblogButtons}
+			{block:IfShowLikeButtons}
 			<a id="customlike" href="#" data-tippy-content="Like">
 				{LikeButton size=24}
 				<svg width="100%" height="100%" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
 			</a>
+			{/block:IfShowLikeButtons}
 			{block:RebloggedFrom}
 				<a href="{ReblogParentURL}" data-tippy-content="{lang:Reblogged from ReblogParentName}"><img src="{ReblogParentPortraitURL-40}" class="circle" /></a>
 				<a href="{ReblogRootURL}" data-tippy-content="{lang:Originally from ReblogRootName}"><img src="{ReblogRootPortraitURL-40}" class="circle" /></a>
@@ -514,12 +648,14 @@ Credits:
 		</div>
 		{/block:Date}
 		
+		{block:IfShowTags}
 		{block:HasTags}<div class="tag-wrapper">
 			{block:Tags}<a class="tag" href="{TagURL}">
 				<svg width="1em" height="1em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-tag"></use></svg>
 				{Tag}
 			</a>{/block:Tags}
 		</div>{/block:HasTags}
+		{/block:IfShowTags}
 	</section>
 	
 	{/block:Posts}
@@ -578,9 +714,6 @@ Credits:
 		<g id="img-likes">
 			<path fill="currentColor" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868-3.308 0-6.227 1.633-8.018 4.129-1.791-2.496-4.71-4.129-8.017-4.129-5.45 0-9.868 4.417-9.868 9.868 0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959.17-.721.268-1.469.268-2.242z"/>
 		</g>
-		<g id="img-nitro">
-			<path fill="currentColor" d="M4 0L0 4V8L4 12L8 8V4L4 0ZM7 7.59L4 10.59L1 7.59V4.41L4 1.41L7 4.41V7.59Z"/><path fill="currentColor" d="M2 4.83V7.17L4 9.17L6 7.17V4.83L4 2.83L2 4.83Z"/>
-		</g>
 		<g id="img-following">
 			<path fill="currentColor" fill-rule="evenodd" d="M14 8.00598C14 10.211 12.206 12.006 10 12.006C7.795 12.006 6 10.211 6 8.00598C6 5.80098 7.794 4.00598 10 4.00598C12.206 4.00598 14 5.80098 14 8.00598ZM2 19.006C2 15.473 5.29 13.006 10 13.006C14.711 13.006 18 15.473 18 19.006V20.006H2V19.006Z" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M14 8.00598C14 10.211 12.206 12.006 10 12.006C7.795 12.006 6 10.211 6 8.00598C6 5.80098 7.794 4.00598 10 4.00598C12.206 4.00598 14 5.80098 14 8.00598ZM2 19.006C2 15.473 5.29 13.006 10 13.006C14.711 13.006 18 15.473 18 19.006V20.006H2V19.006Z" clip-rule="evenodd"/><path fill="currentColor" d="M20.0001 20.006H22.0001V19.006C22.0001 16.4433 20.2697 14.4415 17.5213 13.5352C19.0621 14.9127 20.0001 16.8059 20.0001 19.006V20.006Z"/><path fill="currentColor" d="M14.8834 11.9077C16.6657 11.5044 18.0001 9.9077 18.0001 8.00598C18.0001 5.96916 16.4693 4.28218 14.4971 4.0367C15.4322 5.09511 16.0001 6.48524 16.0001 8.00598C16.0001 9.44888 15.4889 10.7742 14.6378 11.8102C14.7203 11.8418 14.8022 11.8743 14.8834 11.9077Z"/>
 		</g>
@@ -617,6 +750,9 @@ Credits:
 		</g>
 		<g id="img-reblog">
 			<path fill="currentColor" d="M30.2 10L23 4v4h-8C9.477 8 5 12.477 5 18c0 1.414.297 2.758.827 3.978l3.3-2.75C9.044 18.831 9 18.421 9 18c0-3.314 2.686-6 6-6h8v4l7.2-6zm-.026 4.023l-3.301 2.75c.083.396.127.806.127 1.227 0 3.313-2.687 6-6 6h-8v-4l-7.2 6 7.2 6v-4h8c5.522 0 10-4.478 10-10 0-1.414-.297-2.758-.826-3.977z"/>
+		</g>
+		<g id="img-more">
+			<path fill="{color:Servers navbar}" d="m0 8h14.2l-3.6-3.6 1.4-1.4 6 6-6 6-1.4-1.4 3.6-3.6h-14.2"/>
 		</g>
 	</defs>
 </svg>

@@ -51,7 +51,7 @@ img { max-width: 100%; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 body {
-	font-family: {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: var(--font-normal);
 	font-size: {text:Font size};
 	background-color: var(--sidebar);
 	color: var(--text-normal);
@@ -60,8 +60,9 @@ body {
 	--discord-blue: {color:Discord logo};
 	--green: {color:Servers navbar};
 	--hover: #fff;
+	--font-normal: {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-h1, h2, h3, h4, h5, h6 { font-family: {font:Header font}, {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: {font:Header font}, var(--font-normal); }
 body.dark {
 	--bg-standard: #36393f;
 	--bg-dark: #202225;
@@ -297,8 +298,8 @@ body.light em, body.light i { color: {color:Light mode italics}; }
 	align-items: center;
 }
 .blogname img { height: 2em; width: 2em; }
-img.circle { border-radius: 100%; }
-img.square { border-radius: 0.15em; }
+.circle { border-radius: 100%; }
+.square { border-radius: 0.15em; }
 .blogname div .name {
 	font-size: 0.875em;
 	color: var(--header);
@@ -352,6 +353,7 @@ img.square { border-radius: 0.15em; }
 	visibility: hidden;
 	transition-property: opacity;
 }
+body.no-search .tmblr-iframe { margin-right: 5.5em; }
 #tmblr-controls-toggle, .tmblr-iframe { transition: .3s; }
 body.controls-click #tmblr-controls-toggle { transform: rotate(65deg); }
 body.controls-click .tmblr-iframe {
@@ -440,8 +442,8 @@ body.light .tmblr-iframe {
 #allposts > * { padding: 0.5em 1em 0.25em; margin: 0.5em 0; position: relative; }
 #allposts > p { padding: 0 1em; margin: 1em 0; }
 .ask-submit-wrapper ~ .post { display: none; }
+.post .content iframe { max-width: 600px; margin: 0.25em 0 }
 .post .content p { margin: 0.25em 0 0.5em; }
-.post .content p:first-child { margin-top: 0; }
 body.dark .post:hover, body.dark .post:hover .timestamp .date { background: #32353b; }
 body.light .post:hover, body.light .post:hover .timestamp .date { background: #fafafa; }
 .timestamp {
@@ -483,18 +485,21 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	padding: 0.125em 0.375em 0.125em 0;
 	border-radius: 0 0.25em 0.25em 0;
 }
-.pinned {
+.system {
 	display: grid;
 	grid-template-columns: 2.5em 1fr;
 	column-gap: 1em;
 	align-items: center;
 	margin: 0.5em 0 1.5em;
 }
-.pinned svg { color: var(--secondary); justify-self: center; }
-.pinned p { color: var(--channels); }
+.system svg { color: var(--secondary); justify-self: center; }
+.system p { color: var(--channels); }
 .post .username {
 	font-weight: 500;
 	color: var(--header);
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
 }
 .username.deactivated { color: var(--secondary); }
 .username.deactivated::after {
@@ -510,7 +515,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	column-gap: 1em;
 	margin: 1em 0 0.5em;
 }
-.bodyitem > .usericon { grid-row: 1 / span 2 }
+.bodyitem > .usericon { grid-row: 1 / span 2; height: 2.5em; }
 .tag-wrapper { padding-bottom: 0.5em; margin-left: 3.5em; }
 .tag-wrapper .tag {
 	border: 1px solid transparent;
@@ -556,13 +561,13 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 
 
 .post .title {
-	font-weight: 700;
-	font-size: 1.5em;
-	margin-bottom: 0.5em;
-	color: var(--header);
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--header);
 }
 .post .title:not(:first-child) { margin-top: 0.5em; }
-.photo-wrapper { position: relative }
+.photo-wrapper { position: relative; margin: 0.25em 0; }
 .photo-wrapper .highres {
 	position: absolute;
 	bottom: 0.5em;
@@ -573,13 +578,15 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	visibility: hidden;
 }
 .photo-wrapper:hover .highres { visibility: visible }
-blockquote {
-	padding-right: 0.5em;
-	padding-left: 0.875em;
-	margin: 0.5em 0;
-	position: relative;
+blockquote,
+p.npf_quote {
+    padding-right: 0.5em;
+    padding-left: 0.875em;
+    margin: 0.5em 0;
+    position: relative;
 }
-blockquote::before {
+blockquote::before,
+p.npf_quote::before {
 	content: "";
 	position: absolute;
 	left: 0;
@@ -589,26 +596,30 @@ blockquote::before {
 	opacity: 0.25;
 	border-radius: 0.25em;
 }
-.quotetext {
-	background-color: var(--sidebar);
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
+.quotetext,
+p.npf_quote {
+    font-family: var(--font-normal);
+    font-size: 1em;
+    background-color: var(--sidebar);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 .boxquote {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .boxquote.ask {
-	display: grid;
-	grid-template-columns: 1fr 3em;
-	grid-template-rows: auto 1fr;
-	column-gap: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 3em;
+    grid-template-rows: auto 1fr;
+    column-gap: 1.5em;
 }
 .boxquote.ask .asked { color: var(--text-muted); }
 .boxquote.ask > img { grid-column: 2; grid-row: 1 / span 2; }
 .boxquote.ask p, .boxquote.ask div { font-size: 0.95em; }
 .boxquote,
-.npf-link-block > a {
+.npf-link-block > a,
+p.npf_chat {
 	border-left: 4px solid var(--bg-dark);
 	border-radius: 0.25em;
 	margin: 0.5em 0;
@@ -639,10 +650,10 @@ a.boxquote, .npf-link-block > a { border-left-color: var(--link); }
 }
 .npf-link-block > a .poster { height: 15em; }
 .npf-link-block > a .poster::before, .npf-link-block > a .poster .title { display: none; }
-.boxquote.chat { padding: 0; overflow: hidden }
-.boxquote.chat { list-style: none; margin: 0; padding: 0; }
-.boxquote.chat li { margin: 0; padding: 0.25em 0.5em; }
-.boxquote.chat li.even { background: var(--channels-hover); }
+.boxquote.chat { overflow: hidden; list-style: none; margin: 0; padding: 0; }
+.boxquote.chat li, .post .content p.npf_chat { margin: 0; padding: 0.5em; }
+.boxquote.chat li.even, .post .content p.npf_chat:nth-child(even) { background: var(--channels-hover); }
+.post .content p.npf_chat { border-radius: 0; font-family: var(--font-normal); }
 
 
 
