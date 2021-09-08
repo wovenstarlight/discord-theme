@@ -52,21 +52,14 @@ a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 body {
 	font-family: var(--font-normal);
-	font-size: {text:Font size};
 	background-color: var(--bg-standard);
 	color: var(--text-normal);
 	overflow: hidden scroll;
-	--banner-header: {color:Title if header is showing};
-	--discord-blue: {color:Discord logo};
-	--green: {color:Servers navbar};
 	--hover: #fff;
-	--font-normal: {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-h1, h2, h3, h4, h5, h6 { font-family: {font:Header font}, var(--font-normal); }
 body.dark {
 	--bg-standard: #36393f;
 	--bg-dark: #202225;
-	--header: {color:Dark mode headers and accent};
 	--labels: #18191c;
 	--sidebar: #2f3136;
 	--blogname: #292b2f;
@@ -76,13 +69,11 @@ body.dark {
 	--channels: #8e9297;
 	--channels-hover: rgba(79,84,92,0.16);
 	--channels-active: rgba(79,84,92,0.32);
-	--link: {color:Dark mode links};
 	--paginate: #40444b;
 }
 body.light {
 	--bg-standard: #fff;
 	--bg-dark: #e3e5e8;
-	--header: {color:Light mode headers and accent};
 	--labels: #fff;
 	--sidebar: #f2f3f5;
 	--blogname: #ebedef;
@@ -92,13 +83,8 @@ body.light {
 	--channels: #6a7480;
 	--channels-hover: rgba(116,127,141,0.08);
 	--channels-active: rgba(116,127,141,0.24);
-	--link: {color:Light mode links};
 	--paginate: #ebedef;
 }
-body.dark strong, body.dark b { color: {color:Dark mode bold}; }
-body.light strong, body.light b { color: {color:Light mode bold}; }
-body.dark em, body.dark i { color: {color:Dark mode italics}; }
-body.light em, body.light i { color: {color:Light mode italics}; }
 
 
 #servers,
@@ -236,7 +222,6 @@ body.light em, body.light i { color: {color:Light mode italics}; }
 	width: 15em;
 	height: 8.4375em;
 	object-fit: cover;
-	object-position: {select:Header image focus area};
 	top: 0;
 }
 #sidebar header.banner h1 {
@@ -288,11 +273,6 @@ body.light em, body.light i { color: {color:Light mode italics}; }
 #channels a.active { background-color: var(--channels-active); }
 .blogname {
 	background-color: var(--blogname);
-	{block:ShowAvatar}
-	display: grid;
-	grid-template-columns: 2em 1fr;
-	column-gap: 0.5em;
-	{/block:ShowAvatar}
 	padding: 0.65em 0.5em;
 	max-width: 100%;
 	align-items: center;
@@ -405,50 +385,6 @@ body.light .tmblr-iframe {
 	align-items: center;
 }
 #navigate > div > p { color: var(--text-muted); }
-{block:IfNotInfiniteScroll}
-#navigate .paginate {
-	display: flex;
-	align-items: center;
-}
-.paginate a { padding: 0.5em; margin: -0.5em; }
-.paginate a:hover { filter: drop-shadow(0 0 0.25em var(--link)); }
-.paginate .prev {
-	-webkit-transform: rotate(90deg);
-		-ms-transform: rotate(90deg);
-			transform: rotate(90deg);
-}
-.paginate .next {
-	-webkit-transform: rotate(-90deg);
-		-ms-transform: rotate(-90deg);
-			transform: rotate(-90deg);
-	padding-left: 0.6em;
-}
-.paginate p {
-	text-align: center;
-	font-weight: 600;
-}
-.paginate p.curr::after {
-	content: "/";
-	margin: 0 0.25em;
-}
-{/block:IfNotInfiniteScroll}
-{block:IfInfiniteScroll}
-#navigate .paginate { display: none; }
-{block:IfManualLoadForInfiniteScroll}
-#iscroll {
-	display: block;
-	text-align: center;
-	background-color: var(--sidebar);
-	margin: -4em 1em 5.5em calc(var(--left) + 1em);
-	padding: 0.5em;
-	border-radius: 0.5em;
-	font-variant: small-caps;
-	cursor: pointer;
-	transition: .2s;
-}
-#iscroll:hover { background-color: var(--bg-dark); }
-{/block:IfManualLoadForInfiniteScroll}
-{/block:IfInfiniteScroll}
 .ask-submit-wrapper div:not(:empty) + iframe { margin-top: 1em; }
 
 #allposts {
@@ -478,19 +414,17 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	content: "";
 	display: block;
 	width: 100%;
-	border-top: thin solid {color:Timestamps and post divider};
+	border-top: thin solid;
 	position: absolute;
 	top: 1em;
 }
 .timestamp .date {
-	color: {color:Timestamps and post divider};
 	background-color: var(--bg-standard);
 	position: relative;
 	z-index: 1;
 	padding: 0.125em 0.25em;
 }
 .timestamp .datelink {
-	color: {color:Post divider More link};
 	position: absolute;
 	right: 0;
 	top: 0.25em;
@@ -499,7 +433,6 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	text-transform: uppercase;
 }
 .timestamp .datelink span {
-	background: {color:Timestamps and post divider};
 	padding: 0.125em 0.375em 0.125em 0;
 	border-radius: 0 0.25em 0.25em 0;
 }
