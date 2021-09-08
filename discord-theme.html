@@ -78,10 +78,10 @@
     {block:IfInfiniteScroll}
     <script src="https://static.tumblr.com/h7vugp8/L8Vqz4k0e/infinitescroll.min.js"></script>
     {/block:IfInfiniteScroll}
-    <script src="discord-theme.js"></script>
+    <script src="https://static.tumblr.com/h7vugp8/f8Nqz4t7a/discord-theme.min.js"></script>
 	
 <!-- Main styles -->
-<link rel="stylesheet" href="discord-theme.css">
+<link rel="stylesheet" href="https://static.tumblr.com/h7vugp8/f0Lqz4t1z/discord-theme.min.css">
 
 <!-- Customizable styles -->
 <style type="text/css">
@@ -115,11 +115,19 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	column-gap: 0.5em
 }
 {/block:ShowAvatar}
+{block:Pagination}
 {block:IfNotInfiniteScroll}
 #navigate .paginate {
 	display: flex;
 	align-items: center
 }
+{block:TagPage}
+#navigate .navigation {
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+}
+{/block:TagPage}
 .paginate a { padding: 0.5em; margin: -0.5em }
 .paginate a:hover { filter: drop-shadow(0 0 0.25em var(--link)) }
 .paginate .prev {
@@ -159,6 +167,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 #iscroll:hover { background-color: var(--bg-dark) }
 {/block:IfManualLoadForInfiniteScroll}
 {/block:IfInfiniteScroll}
+{/block:Pagination}
 
 .timestamp::before { border-top-color: {color:Timestamps and post divider} }
 .timestamp .date { color: {color:Timestamps and post divider} }
@@ -276,7 +285,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	</div>
 </header>
 
-<main id="allposts" {block:IfInfiniteScroll}data-infinite-scroll='{ "path": ".paginate .next", "append": ".post", "history": false{block:IfManualLoadForInfiniteScroll}, "button": "#iscroll", "scrollThreshold": false{/block:IfManualLoadForInfiniteScroll} }'{/block:IfInfiniteScroll}>
+<main id="allposts" {block:IfInfiniteScroll}data-infinite-scroll='{ "path": ".paginate .next", "append": ".post", "history": false{block:IfManualLoadForInfiniteScroll}, button: "#iscroll", scrollThreshold: false{/block:IfManualLoadForInfiniteScroll}'{/block:IfInfiniteScroll}>
 	
 	{block:AskPage}
 	<div class="ask-submit-wrapper">
