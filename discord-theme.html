@@ -1,14 +1,13 @@
 <!-- 
-THEME 1: DISCORD
-
-Theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
-
-Credits:
-	Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
-	Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
-	Icons from Font Awesome: https://fontawesome.com
-	Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
-	Infinite scroll: https://infinite-scroll.com
+    THEME 1: DISCORD
+    
+    Theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
+    
+    Credits:
+    	Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
+    	Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
+    	Icons from Font Awesome: https://fontawesome.com
+    	Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
 -->
 
 <!DOCTYPE html>
@@ -70,9 +69,21 @@ Credits:
 	<meta name="if:24 hour timestamps" content="0">
 	<meta name="if:Show Discord tag" content="1">
 	<meta name="text:Discord tag" content="0000">
-
+	
+	<!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Tippy.js tooltips by atomiks -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    {block:IfInfiniteScroll}
+    <script src="https://static.tumblr.com/h7vugp8/L8Vqz4k0e/infinitescroll.min.js"></script>
+    {/block:IfInfiniteScroll}
+    <script src="discord-theme.js"></script>
+	
+<!-- Main styles -->
 <link rel="stylesheet" href="discord-theme.css">
 
+<!-- Customizable styles -->
 <style type="text/css">
 body {
 	font-size: {text:Font size};
@@ -844,16 +855,6 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		</g>
 	</defs>
 </svg>
-
-<!-- jQuery CDN -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Tippy.js tooltips by atomiks -->
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-{block:IfInfiniteScroll}
-<script src="https://static.tumblr.com/h7vugp8/L8Vqz4k0e/infinitescroll.min.js"></script>
-{/block:IfInfiniteScroll}
-<script src="https://static.tumblr.com/h7vugp8/kGYqz4n18/discord-theme.js"></script>
 
 </body>
 
