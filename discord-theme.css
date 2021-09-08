@@ -631,7 +631,7 @@ p.npf_chat {
 a.boxquote, .npf-link-block > a { border-left-color: var(--link); }
 .boxquote .linkhead, .npf-link-block > a .bottom .description { font-weight: 600; }
 .boxquote img, .npf-link-block > a .poster { margin: 0.5em 0 0.25em; }
-.boxquote .linkexcerpt { font-size: 0.875em; margin: 0.75em 0; color: var(--text-normal); }
+.boxquote .linkexcerpt { font-size: 0.875em; margin: 0.75em 0 0; color: var(--text-normal); }
 .npf-link-block {
 	border: none !important;
 	margin: 0 !important;
@@ -650,7 +650,7 @@ a.boxquote, .npf-link-block > a { border-left-color: var(--link); }
 	text-transform: none;
 }
 .npf-link-block > a .poster { height: 15em; }
-.npf-link-block > a .poster::before, .npf-link-block > a .poster .title { display: none; }
+.npf-link-block.no-poster .title { padding: 0; margin: 0; }
 .boxquote.chat { overflow: hidden; list-style: none; margin: 0; padding: 0; }
 .boxquote.chat li, .post .content p.npf_chat { margin: 0; padding: 0.5em; }
 .boxquote.chat li.even, .post .content p.npf_chat:nth-child(even) { background: var(--channels-hover); }
