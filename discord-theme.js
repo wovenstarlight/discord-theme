@@ -1,10 +1,4 @@
 $(document).ready( function() {
-    {block:IfColorModeToggle}
-	$("#darklight").click( function() {
-		$("body").toggleClass("dark light");
-	});
-	{/block:IfColorModeToggle}
-
 	$("#servers .more").click( function() {
 		$(this).toggleClass("active");
 		$("#sidebar").toggleClass("active");
