@@ -149,7 +149,7 @@ body.light {
 	display: block;
 	border: 0.25em solid var(--header);
 	border-radius: 0.25em;
-	transition: .2s;
+	transition: height, opacity .2s;
 	opacity: 0;
 	height: 0;
 }
@@ -356,7 +356,7 @@ body.light .tmblr-iframe {
 	font-size: 0.9em;
 	border-radius: 0.25em;
 	padding: 0.25em 1.75em 0.25em 0.5em;
-	transition: .2s;
+	transition: width .2s;
 }
 .icons form input:focus, .icons form input:not(:placeholder-shown) { width: 16em; }
 .icons form svg {
