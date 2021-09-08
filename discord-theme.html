@@ -22,14 +22,12 @@ Credits:
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
 	
 	<meta name="if:Show Random post link" content="1">
-	<meta name="if:Show search bar" content="1">
 	<meta name="if:Show Archive link" content="1">
 	<meta name="if:Show Reblog buttons" content="1">
 	<meta name="if:Show Like buttons" content="1">
 	<meta name="if:Show tags" content="1">
-	
-	<meta name="text:FAQ" content="">
-	<meta name="text:Submission guidelines" content="">
+	<meta name="if:Show search bar" content="1">
+	<meta name="if:Color mode toggle" content="1">
 	
 	<meta name="select:Default theme" content="dark" title="Dark">
 	<meta name="select:Default theme" content="light" title="Light">
@@ -44,6 +42,9 @@ Credits:
 	<meta name="font:Header font" content="Ginto">
 	<meta name="text:Font size" content="16px">
 	<meta name="text:Post width" content="100%">
+	
+	<meta name="text:FAQ" content="">
+	<meta name="text:Submission guidelines" content="">
 	
 	<meta name="image:Header" content="{HeaderImage}">
 	<meta name="color:Title if header is showing" content="#fff">
@@ -175,8 +176,12 @@ Credits:
 			<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
 		</form>
 		{/block:IfShowSearchBar}
+		{block:IfColorModeToggle}
 		<a id="darklight" data-tippy-content="Toggle dark/light mode"><svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
+		{/block:IfColorModeToggle}
+		<!-- DO NOT REMOVE CREDIT. LEAVE THIS INTACT. -->
 		<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
+		<!--DO NOT REMOVE CREDIT. LEAVE THIS INTACT.-->
 	</div>
 </header>
 
