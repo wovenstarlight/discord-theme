@@ -8,6 +8,7 @@ Credits:
 	Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
 	Icons from Font Awesome: https://fontawesome.com
 	Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
+	Infinite scroll: https://infinite-scroll.com
 -->
 
 <!DOCTYPE html>
@@ -28,6 +29,8 @@ Credits:
 	<meta name="if:Show tags" content="1">
 	<meta name="if:Show search bar" content="1">
 	<meta name="if:Color mode toggle" content="1">
+	<meta name="if:Infinite scroll" content="0">
+	<meta name="if:Manual load for infinite scroll" content="1">
 	
 	<meta name="select:Default theme" content="dark" title="Dark">
 	<meta name="select:Default theme" content="light" title="Light">
@@ -41,7 +44,6 @@ Credits:
 	<meta name="font:Body font" content="Whitney">
 	<meta name="font:Header font" content="Ginto">
 	<meta name="text:Font size" content="16px">
-	<meta name="text:Post width" content="100%">
 	
 	<meta name="text:FAQ" content="">
 	<meta name="text:Submission guidelines" content="">
@@ -185,7 +187,7 @@ Credits:
 	</div>
 </header>
 
-<main id="allposts">
+<main id="allposts" {block:IfInfiniteScroll}data-infinite-scroll='{ "path": ".paginate .next", "append": ".post", "history": false{block:IfManualLoadForInfiniteScroll}, "button": "#iscroll", "scrollThreshold": false{/block:IfManualLoadForInfiniteScroll} }'{/block:IfInfiniteScroll}>
 	
 	{block:AskPage}
 	<div class="ask-submit-wrapper">
@@ -658,6 +660,10 @@ Credits:
 	{/block:Posts}
 </main>
 
+{block:IfManualLoadForInfiniteScroll}
+<a id="iscroll">{lang:Load more posts}</a>
+{/block:IfManualLoadForInfiniteScroll}
+
 <footer id="navigate"><div>
 	<svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-copyright"></use></svg>
 	<p>{Name} {CopyrightYears}</p>
@@ -766,6 +772,10 @@ Credits:
 <!-- Tippy.js tooltips by atomiks -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
+{block:IfInfiniteScroll}
+<!-- Infinite scroll JS -->
+<script src="https://static.tumblr.com/h7vugp8/L8Vqz4k0e/infinitescroll.min.js"></script>
+{/block:IfInfiniteScroll}
 <script src="discord-theme.js"></script>
 
 </body>
