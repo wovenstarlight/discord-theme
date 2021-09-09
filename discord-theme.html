@@ -83,7 +83,7 @@
 <!-- Main styles -->
 <link rel="stylesheet" href="https://static.tumblr.com/h7vugp8/FVuqz4yca/discord-theme.min.css">
 {block:PostNotes}
-<link rel="stylesheet" href="https://static.tumblr.com/h7vugp8/VW1qz586c/notes.min.css">
+<link rel="stylesheet" href="https://static.tumblr.com/h7vugp8/qS1qz6a7s/notes.min.css">
 <style type="text/css">#notes .source_tumblelog::before { content:"{lang:Via} " }</style>
 {/block:PostNotes}
 
@@ -119,7 +119,6 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	column-gap: 0.5em
 }
 {/block:ShowAvatar}
-{block:IfNotInfiniteScroll}
 #navigate .paginate {
 	display: flex;
 	align-items: center
@@ -152,9 +151,10 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	content: "/";
 	margin: 0 0.25em
 }
-{/block:IfNotInfiniteScroll}
 {block:IfInfiniteScroll}
+{block:IndexPage}
 #navigate .paginate { display: none }
+{/block:IndexPage}
 {block:IfManualLoadForInfiniteScroll}
 #iscroll {
 	display: block;
@@ -293,7 +293,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	</div>
 </header>
 
-<main id="allposts" {block:IfInfiniteScroll}data-infinite-scroll='{ "path": ".paginate .next", "append": ".post", "history": false{block:IfManualLoadForInfiniteScroll}, button: "#iscroll", scrollThreshold: false{/block:IfManualLoadForInfiniteScroll}'{/block:IfInfiniteScroll}>
+<main id="allposts" {block:IfInfiniteScroll}data-infinite-scroll='{ "path": ".paginate .next", "append": ".post", "history": false{block:IfManualLoadForInfiniteScroll}, "button": "#iscroll", "scrollThreshold": false{/block:IfManualLoadForInfiniteScroll} }'{/block:IfInfiniteScroll}>
 	
 	{block:AskPage}
 	<div class="ask-submit-wrapper">
