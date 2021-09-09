@@ -82,6 +82,10 @@
 	
 <!-- Main styles -->
 <link rel="stylesheet" href="https://static.tumblr.com/h7vugp8/FVuqz4yca/discord-theme.min.css">
+{block:PostNotes}
+<link rel="stylesheet" href="https://static.tumblr.com/h7vugp8/VW1qz586c/notes.min.css">
+<style type="text/css">#notes .source_tumblelog::before { content:"{lang:Via} " }</style>
+{/block:PostNotes}
 
 <!-- Customizable styles -->
 <style type="text/css">
@@ -171,6 +175,12 @@ body.light em, body.light i { color: {color:Light mode italics} }
 .timestamp .date { color: {color:Timestamps and post divider} }
 .timestamp .datelink { color: {color:Post divider More link} }
 .timestamp .datelink span { background: {color:Timestamps and post divider} }
+
+@media (max-width: 500px) {
+	body { font-size: 80% }
+	#notes .action a { font-size: 0.8rem }
+	#notes a.source_tumblelog { font-size: 0.6rem }
+}
 
 {CustomCSS}
 </style>
@@ -754,6 +764,13 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	</section>
 	
 	{/block:Posts}
+	
+	{block:PostNotes}
+    <aside id="notes">
+        <h2>{lang:Notes}</h2>
+        {PostNotes-64}
+    </aside>
+	{/block:PostNotes}
 </main>
 
 {block:IfManualLoadForInfiniteScroll}{block:IndexPage}
