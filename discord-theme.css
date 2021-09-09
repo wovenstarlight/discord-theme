@@ -149,7 +149,8 @@ body.light {
 	display: block;
 	border: 0.25em solid var(--header);
 	border-radius: 0.25em;
-	transition: height, opacity .2s;
+	transition-duration: .2s;
+	transition-property: height, opacity;
 	opacity: 0;
 	height: 0;
 }
