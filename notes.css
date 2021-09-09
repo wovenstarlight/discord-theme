@@ -38,7 +38,6 @@
 	display: flex;
 	flex-direction: column;
 }
-#notes .action a { font-size: 1rem; }
 #notes .action, #notes .action a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 #notes a.source_tumblelog {
 	color: var(--secondary);
