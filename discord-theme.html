@@ -364,7 +364,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">{Body}</div>
 			</div>
 			{block:More}
@@ -401,7 +401,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">
 				
 					{block:isOriginalEntry}
@@ -448,7 +448,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">
 				
 					{block:isOriginalEntry}
@@ -495,7 +495,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">
 				
 					{block:isOriginalEntry}
@@ -526,7 +526,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 				{/block:NotReblog}
 				{block:RebloggedFrom}
 				<a href="{ReblogRootURL}" class="circle usericon"><img src="{ReblogRootPortraitURL-64}" class="circle"/></a>
-				<a href="{ReblogRootURL}" class="username">{ReblogRootName}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{ReblogRootURL}"{/block:IsActive}>{ReblogRootName}</a>
 				{/block:RebloggedFrom}
 				<div class="content">
 					<blockquote class="quotetext">{Quote}</blockquote>
@@ -567,7 +567,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">
 					{block:isOriginalEntry}
 					<a href="{URL}" class="boxquote">
@@ -598,7 +598,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 				{/block:NotReblog}
 				{block:RebloggedFrom}
 				<a href="{ReblogRootURL}" class="circle usericon"><img src="{ReblogRootPortraitURL-64}" class="circle"/></a>
-				<a href="{ReblogRootURL}" class="username">{ReblogRootName}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{ReblogRootURL}"{/block:IsActive}>{ReblogRootName}</a>
 				{/block:RebloggedFrom}
 				<div class="content">
 					<ul class="boxquote chat">
@@ -638,7 +638,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">
 					{block:isOriginalEntry}{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}{/block:isOriginalEntry}
 					{Body}
@@ -676,7 +676,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">
 					{block:isOriginalEntry}
 					{VideoEmbed-500}
@@ -698,7 +698,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		{block:Answer}
 			<div class="bodyitem">
 				<img src="{block:NotReblog}{PortraitURL-64}{/block:NotReblog}{block:Answerer}{AnswererPortraitURL-64}{/block:Answerer}" class="circle usericon"/>
-				<a class="username" href="{Permpoalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootName}{/block:RebloggedFrom}</a>
+				<a class="username" href="{Permalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootName}{/block:RebloggedFrom}</a>
 				<div class="content">
 					<div class="boxquote ask">
 						<p class="asked">{lang:Asker asked 2}:</p>
@@ -718,7 +718,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:Reblogs}
 			<div class="bodyitem">
 				<a href="{Permalink}" class="circle usericon"><img src="{PortraitURL-64}" class="circle"/></a>
-				<a class="username" href="{Permalink}">{Username}</a>
+				<a class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}" {block:IsActive}href="{Permalink}"{/block:IsActive}>{Username}</a>
 				<div class="content">{Body}</div>
 			</div>
 			{block:More}
