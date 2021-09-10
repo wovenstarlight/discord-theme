@@ -884,6 +884,18 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	</defs>
 </svg>
 
+{block:HasPages}
+{block:PermalinkPage}
+<script>
+    $("#channels a").each( function() {
+        if ($(this).attr('href') === window.location.pathname) {
+            $(this).addClass("active")
+        }
+    })
+</script>
+{/block:PermalinkPage}
+{/block:HasPages}
+
 </body>
 
 </html>
