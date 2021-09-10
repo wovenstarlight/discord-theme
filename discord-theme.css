@@ -227,8 +227,8 @@ body.light {
 }
 #sidebar header.banner h1 {
 	color: var(--banner-header);
-	background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.4)),to(transparent));
-	background: linear-gradient(180deg,rgba(0,0,0,.4) 0,transparent);
+	background: -webkit-linear-gradient(270deg,rgba(0,0,0,.5) 25%,transparent);
+	background: linear-gradient(180deg,rgba(0,0,0,.5) 25%,transparent)
 }
 .middle {
 	overflow-y: scroll;
