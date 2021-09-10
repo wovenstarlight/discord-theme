@@ -567,6 +567,7 @@ p.npf_quote {
     grid-template-columns: 1fr 3em;
     grid-template-rows: auto 1fr;
     column-gap: 1.5em;
+	row-gap: 0.25em;
 }
 .boxquote.ask .asked { color: var(--text-muted); }
 .boxquote.ask > img { grid-column: 2; grid-row: 1 / span 2; }
