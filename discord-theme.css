@@ -225,11 +225,7 @@ body.light {
 	background: var(--bg-dark);
 	top: 0;
 }
-#sidebar header.banner h1 {
-	color: var(--banner-header);
-	background: -webkit-linear-gradient(270deg,rgba(0,0,0,.5) 25%,transparent);
-	background: linear-gradient(180deg,rgba(0,0,0,.5) 25%,transparent)
-}
+#sidebar header.banner h1 { color: var(--banner-header) }
 .middle {
 	overflow-y: scroll;
 	-ms-overflow-style: none;  /* IE and Edge */
