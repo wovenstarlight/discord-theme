@@ -115,7 +115,10 @@ body.dark em, body.dark i { color: {color:Dark mode italics} }
 body.light em, body.light i { color: {color:Light mode italics} }
 
 
-#sidebar header.banner img { object-position: {select:Header image focus area} }
+#sidebar header.banner img {
+	object-position: {select:Header image focus area};
+	object-fit: {block:StretchHeaderImage}cover{/block:StretchHeaderImage}{block:NoStretchHeaderImage}contain{/block:NoStretchHeaderImage}
+}
 {block:ShowAvatar}
 .blogname {
 	display: grid;
