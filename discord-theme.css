@@ -222,7 +222,7 @@ body.light {
 	position: absolute;
 	width: 15em;
 	height: 8.4375em;
-	object-fit: cover;
+	background: var(--bg-dark);
 	top: 0;
 }
 #sidebar header.banner h1 {
