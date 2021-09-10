@@ -399,6 +399,8 @@ body.light .tmblr-iframe {
 .post .content .tumblr_video_iframe, .post .content video { max-width: min(500px, 100%); margin: 0.25em 0 }
 .post .content video { max-height: 600px; width: auto; height: auto; }
 .post .content > * { margin: 0.25em 0 0.5em; }
+.post .content > p:first-child, .post .content > p:first-child:empty + p { margin-top: 0 }
+.post .content > p:first-child:empty { margin: 0 }
 .post .content h1 { font-size: 1.4em }
 .post .content h2 { font-size: 1.2em }
 body.dark .post:hover, body.dark .post:hover .timestamp .date { background: #32353b; }
