@@ -27,12 +27,12 @@
 	<meta name="if:Show Like buttons" content="1">
 	<meta name="if:Show tags" content="1">
 	<meta name="if:Show search bar" content="1">
-	<meta name="if:Show color theme toggle" content="1">
+	<meta name="if:Show color mode toggle" content="1">
 	<meta name="if:Infinite scroll" content="0">
 	<meta name="if:Manual load for infinite scroll" content="1">
 	
-	<meta name="select:Default color theme" content="dark" title="Dark">
-	<meta name="select:Default color theme" content="light" title="Light">
+	<meta name="select:Default color mode" content="dark" title="Dark">
+	<meta name="select:Default color mode" content="light" title="Light">
 	
 	<meta name="select:Header image focus area" content="center" title="Center">
 	<meta name="select:Header image focus area" content="top" title="Top">
@@ -49,7 +49,13 @@
 	<meta name="text:Submission guidelines" content="">
 	
 	<meta name="image:Header" content="{HeaderImage}">
-	<meta name="color:Title if header is showing" content="#fff">
+	<meta name="color:Title if header image is showing" content="#fff">
+	<meta name="select:Background for title on header image" content="0.0" title="None">
+	<meta name="select:Background for title on header image" content="0.2" title="Lighter">
+	<meta name="select:Background for title on header image" content="0.4" title="Light">
+	<meta name="select:Background for title on header image" content="0.6" title="Dark">
+	<meta name="select:Background for title on header image" content="0.8" title="Darker">
+	<meta name="select:Background for title on header image" content="1.0" title="Darkest">
 	<meta name="color:Servers navbar" content="#3ba55d">
 	<meta name="color:Dark mode headers and accent" content="#fff">
 	<meta name="color:Light mode headers and accent" content="#060607">
@@ -95,7 +101,7 @@
 <style type="text/css">
 body {
 	font-size: {text:Font size};
-	--banner-header: {color:Title if header is showing};
+	--banner-header: {color:Title if header image is showing};
 	--discord-blue: {color:Discord logo};
 	--green: {color:Servers navbar};
 	--font-normal: {block:IfUseDiscordFontIfAvailable}Whitney,{/block:IfUseDiscordFontIfAvailable} {font:Body font}, "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -118,6 +124,10 @@ body.light em, body.light i { color: {color:Light mode italics} }
 #sidebar header.banner img {
 	object-position: {select:Header image focus area};
 	object-fit: {block:StretchHeaderImage}cover{/block:StretchHeaderImage}{block:NoStretchHeaderImage}contain{/block:NoStretchHeaderImage}
+}
+#sidebar header.banner h1 {
+    background: -webkit-linear-gradient(270deg,rgba(0,0,0,{select:Background for title on header image}) 25%,transparent);
+	background: linear-gradient(180deg,rgba(0,0,0,{select:Background for title on header image}) 25%,transparent);
 }
 {block:ShowAvatar}
 .blogname {
@@ -193,7 +203,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 </head>
 
 
-<body class="{select:Default color theme} {block:IfNotShowSearchBar}no-search{/block:IfNotShowSearchBar}">
+<body class="{select:Default color mode} {block:IfNotShowSearchBar}no-search{/block:IfNotShowSearchBar}">
 
 <nav id="servers">
 	<a href="/" data-tippy-content="{lang:Home}" class="{block:HomePage}active{/block:HomePage}">
@@ -289,9 +299,9 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
 		</form>
 		{/block:IfShowSearchBar}
-		{block:IfShowColorThemeToggle}
+		{block:IfShowColorModeToggle}
 		<a id="darklight" data-tippy-content="Toggle dark/light mode" onclick='$("body").toggleClass("dark light")'><svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
-		{/block:IfShowColorThemeToggle}
+		{/block:IfShowColorModeToggle}
 		<!-- DO NOT REMOVE CREDIT. LEAVE THIS INTACT. -->
 		<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
 		<!--DO NOT REMOVE CREDIT. LEAVE THIS INTACT.-->
