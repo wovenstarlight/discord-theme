@@ -447,6 +447,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 	margin: 0.5em 0 1.5em;
 }
 .system svg { color: var(--secondary); justify-self: center; }
+.system.pin { margin-top: 1.25em }
 .system.pin p { color: var(--channels); }
 .post .username {
 	font-weight: 500;
