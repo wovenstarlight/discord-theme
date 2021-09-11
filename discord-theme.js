@@ -1,4 +1,25 @@
 $(document).ready( function() {
+	if ($("body").hasClass("dark")) {
+		$("#darklight svg").attr("viewBox", "0 0 512 512");
+		$("#darklight svg use").attr("href", "#img-dark")
+	}
+	else {
+		$("#darklight svg").attr("viewBox", "0 0 36 36");
+		$("#darklight svg use").attr("href", "#img-light")
+	}
+
+	$("#darklight").click( function() {
+        if ($("body").hasClass("dark")) {
+            $("#darklight svg").attr("viewBox", "0 0 36 36");
+            $("#darklight svg use").attr("href", "#img-light")
+        }
+        else {
+            $("#darklight svg").attr("viewBox", "0 0 512 512");
+            $("#darklight svg use").attr("href", "#img-dark")
+        }
+        $("body").toggleClass("dark light")
+    });
+
 	$("#servers .more").click( function() {
 		$(this).toggleClass("active");
 		$("#sidebar").toggleClass("active");

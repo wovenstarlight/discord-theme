@@ -6,9 +6,10 @@
     Credits:
     	Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
     	Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
-    	Icons from Font Awesome: https://fontawesome.com
+    	Icons from Font Awesome (https://fontawesome.com) and Discord
     	Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
     	NPF photosets fix by glenthemes: https://glenthemes.tumblr.com/post/659034084446748672/npf-images-v3
+    	Dark/light mode toggle by eggdesign: https://eggdesign.tumblr.com/post/186889223257/day-night-mode-tutorial-after-featuring-a
 -->
 
 <!DOCTYPE html>
@@ -225,41 +226,41 @@ body.light em, body.light i { color: {color:Light mode italics} }
 
 <nav id="servers">
 	<a href="/" data-tippy-content="{lang:Home}" class="{block:HomePage}active{/block:HomePage}">
-		<svg width="1.75em" height="1.25em" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-home"></use></svg>
+		<svg width="1.75em" height="1.25em" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-home"></use></svg>
 	</a>
 	<hr>
 	{block:AskEnabled}
 	<a href="/ask" data-tippy-content="{AskLabel}" class="{block:AskPage}active{/block:AskPage}">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-ask"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-ask"></use></svg>
 	</a>
 	{/block:AskEnabled}
 	{block:SubmissionsEnabled}
 	<a href="/submit" data-tippy-content="{SubmitLabel}" class="{block:SubmitPage}active{/block:SubmitPage}">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-submit"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-submit"></use></svg>
 	</a>
 	{/block:SubmissionsEnabled}
 	{block:Likes}
 	<a href="https://tumblr.com/liked/by/{Name}" data-tippy-content="{lang:Likes}" class="{block:LikesPage}active{/block:LikesPage}">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-likes"></use></svg>
 	</a>
 	{/block:Likes}
 	{block:ShareFollowing}
 	<a href="https://tumblr.com/followed/by/{Name}" data-tippy-content="{lang:Following}" class="{block:FollowingPage}active{/block:FollowingPage}">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-following"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-following"></use></svg>
 	</a>
 	{/block:ShareFollowing}
 	{block:IfShowRandomPostLink}
 	<a href="/random" data-tippy-content="{lang:Random post}">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-random"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-random"></use></svg>
 	</a>
 	{/block:IfShowRandomPostLink}
 	{block:IfShowArchiveLink}
 	<a href="/archive" data-tippy-content="{lang:Archive}">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-archive"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-archive"></use></svg>
 	</a>
 	{/block:IfShowArchiveLink}
 	<a class="more" data-tippy-content="{lang:About me}">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-plus"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-plus"></use></svg>
 	</a>
 </nav>
 
@@ -279,7 +280,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		{block:HasPages}
 		<nav id="channels">
 			{block:Pages}<a href="{URL}">
-				<svg width="1.5em" height="1.5em" viewBox="0 -3 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
+				<svg width="1.5em" height="1.5em" viewBox="0 -3 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-hash"></use></svg>
 				<span>{Label}</span>
 			</a>{/block:Pages}
 		</nav>
@@ -297,7 +298,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 
 <header id="pagehead">
 	<div class="pagename">
-		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-hash"></use></svg>
+		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-hash"></use></svg>
 		<h2>
 			{block:HomePage}{lang:Home}{/block:HomePage}
 			{block:TagPage}{lang:Showing TagResultCount posts tagged Tag 2}{/block:TagPage}
@@ -310,18 +311,18 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		</h2>
 	</div>
 	<div class="icons">
-		<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-controls"></use></svg></a>
+		<a id="tmblr-controls-toggle" data-tippy-content="Show Tumblr controls"><svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-controls"></use></svg></a>
 		{block:IfShowSearchBar}
 		<form action="/search" method="get">
 			<input type="text" name="q" value="{URLSafeSearchQuery}" placeholder="{lang:Search}"/>
-			<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-search"></use></svg>
+			<svg width="1.5em" height="1.5em" viewBox="0 -6 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-search"></use></svg>
 		</form>
 		{/block:IfShowSearchBar}
 		{block:IfShowColorModeToggle}
-		<a id="darklight" data-tippy-content="Toggle dark/light mode" onclick='$("body").toggleClass("dark light")'><svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-adjust"></use></svg></a>
+		<a id="darklight" data-tippy-content="Toggle dark/light mode"><svg width="1.25em" height="1.25em" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-dark"></use></svg></a>
 		{/block:IfShowColorModeToggle}
 		<!-- DO NOT REMOVE CREDIT. LEAVE THIS INTACT. -->
-		<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-credit"></use></svg></a>
+		<a href="https://wovenstarlight.tumblr.com" data-tippy-content="Theme made by wovenstarlight"><svg width="1.25em" height="1.25em" viewBox="1 1 10 10" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-credit"></use></svg></a>
 		<!--DO NOT REMOVE CREDIT. LEAVE THIS INTACT.-->
 	</div>
 </header>
@@ -352,7 +353,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			{block:IfShowDates}
 			<a class="date" href="{Permalink}" data-tippy-content="{DayOfMonth} {Month} {Year}">{block:IfDatesFormattedMonthFirst}{MonthNumberWithZero}/{DayOfMonthWithZero}{/block:IfDatesFormattedMonthFirst}{block:IfNotDatesFormattedMonthFirst}{DayOfMonthWithZero}/{MonthNumberWithZero}{/block:IfNotDatesFormattedMonthFirst}/{Year}{block:IfShowTimestamp} at {block:If24HourTimestamps}{24Hour}{/block:If24HourTimestamps}{block:IfNot24HourTimestamps}{12Hour}{/block:IfNot24HourTimestamps}:{Minutes}{block:IfNot24HourTimestamps} {CapitalAmPm}{/block:IfNot24HourTimestamps}{/block:IfShowTimestamp}</a>
 			<a class="datelink" href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}" data-tippy-content="{lang:Show all posts made on this day}">
-				<svg width="1em" height="1.5em" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-date"></use></svg>
+				<svg width="1em" height="1.5em" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-date"></use></svg>
 				<span>{lang:More}</span>
 			</a>
 			{/block:IfShowDates}
@@ -361,7 +362,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		
 		{block:PinnedPostLabel}
 		<div class="system pin">
-			<svg width="1.0625em" height="1.0625em" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-pin"></use></svg>
+			<svg width="1.0625em" height="1.0625em" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-pin"></use></svg>
 			<p><a class="username">{Name}</a> pinned a message to this channel.</p>
 		</div>
 		{/block:PinnedPostLabel}
@@ -383,7 +384,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -397,7 +398,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -421,7 +422,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -445,7 +446,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -468,7 +469,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -492,7 +493,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -514,7 +515,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -538,7 +539,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -563,7 +564,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -585,7 +586,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -610,7 +611,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -638,7 +639,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -656,7 +657,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -674,7 +675,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -694,7 +695,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -715,7 +716,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -738,7 +739,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -751,7 +752,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			</div>
 			{block:More}
 			<a class="system" href="{Permalink}">
-				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-more"></use></svg>
+				<svg width="1.125em" height="0.75em" viewBox="0 3 18 12" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-more"></use></svg>
 				<p>{lang:Keep reading}</p>
 			</a>
 			{/block:More}
@@ -766,17 +767,17 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		<div class="actions">
 			{block:NoteCount}<span class="notecount">{NoteCountWithLabel}</span>{/block:NoteCount}
 			<a href="{Permalink}" data-tippy-content="{lang:Permalink}">
-				<svg width="100%" height="100%" viewBox="3 3 18 18" xmlns="http://wwwsw3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-link"></use></svg>
+				<svg width="100%" height="100%" viewBox="3 3 18 18" xmlns="http://wwwsw3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-link"></use></svg>
 			</a>
 			{block:IfShowReblogButtons}
 			<a href="{ReblogURL}" data-tippy-content="Reblog">
-				<svg width="100%" height="100%" viewBox="4 4 28 28" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-reblog"></use></svg>
+				<svg width="100%" height="100%" viewBox="4 4 28 28" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-reblog"></use></svg>
 			</a>
 			{/block:IfShowReblogButtons}
 			{block:IfShowLikeButtons}
 			<a class="customlike" href="#" data-tippy-content="Like">
 				{LikeButton size=24}
-				<svg width="100%" height="100%" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
+				<svg width="100%" height="100%" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-likes"></use></svg>
 			</a>
 			{/block:IfShowLikeButtons}
 			{block:RebloggedFrom}
@@ -789,7 +790,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		{block:IfShowTags}
 		{block:HasTags}<div class="tag-wrapper">
 			{block:Tags}<a class="tag" href="{TagURL}">
-				<svg width="1em" height="1em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-tag"></use></svg>
+				<svg width="1em" height="1em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-tag"></use></svg>
 				{Tag}
 			</a>{/block:Tags}
 		</div>{/block:HasTags}
@@ -811,7 +812,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 {/block:Pagination}{/block:IfManualLoadForInfiniteScroll}{/block:IfInfiniteScroll}
 
 <footer id="navigate"><div>
-	<svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-copyright"></use></svg>
+	<svg width="1.25em" height="1.25em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-copyright"></use></svg>
 	<p>{Name} {CopyrightYears}</p>
 	{block:TagPage}
 	<div class="navigation">
@@ -819,27 +820,27 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	{/block:TagPage}
 	{block:Pagination}
 	<div class="paginate index">
-		{block:PreviousPage}<a class="prev" href="{PreviousPage}" data-tippy-content="{lang:Previous}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousPage}
+		{block:PreviousPage}<a class="prev" href="{PreviousPage}" data-tippy-content="{lang:Previous}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-arrow"></use></svg></a>{/block:PreviousPage}
 		<p class="curr">{CurrentPage}</p>
 		<p>{TotalPages}</p>
-		{block:NextPage}<a class="next" href="{NextPage}" data-tippy-content="{lang:Next}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextPage}
+		{block:NextPage}<a class="next" href="{NextPage}" data-tippy-content="{lang:Next}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-arrow"></use></svg></a>{/block:NextPage}
 	</div>
 	{/block:Pagination}
 	{block:TagPage}</div>{/block:TagPage}
 	
 	{block:PermalinkPage}{block:PermalinkPagination}
 	<div class="paginate permalink">
-		{block:PreviousPost}<a class="prev" href="{PreviousPost}" data-tippy-content="{lang:Previous post}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousPost}
+		{block:PreviousPost}<a class="prev" href="{PreviousPost}" data-tippy-content="{lang:Previous post}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-arrow"></use></svg></a>{/block:PreviousPost}
 		<p>{lang:See more posts}</p>
-		{block:NextPost}<a class="next" href="{NextPost}" data-tippy-content="{lang:Next post}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextPost}
+		{block:NextPost}<a class="next" href="{NextPost}" data-tippy-content="{lang:Next post}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-arrow"></use></svg></a>{/block:NextPost}
 	</div>
 	{/block:PermalinkPagination}{/block:PermalinkPage}
 	
 	{block:DayPage}{block:DayPagination}
 	<div class="paginate day">
-		{block:PreviousDayPage}<a class="prev" href="{PreviousDayPage}" data-tippy-content="{lang:Previous day}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:PreviousDayPage}
+		{block:PreviousDayPage}<a class="prev" href="{PreviousDayPage}" data-tippy-content="{lang:Previous day}"><svg width="1.25em" height="1.25em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-arrow"></use></svg></a>{/block:PreviousDayPage}
 		<p>{lang:See more posts}</p>
-		{block:NextDayPage}<a class="next" href="{NextDayPage}" data-tippy-content="{lang:Next day}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-arrow"></use></svg></a>{/block:NextDayPage}
+		{block:NextDayPage}<a class="next" href="{NextDayPage}" data-tippy-content="{lang:Next day}"><svg width="1.25em" height="1.25em" viewBox="3 2 18 18" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use href="#img-arrow"></use></svg></a>{/block:NextDayPage}
 	</div>
 	{/block:DayPagination}{/block:DayPage}
 </div></footer>
@@ -849,8 +850,12 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		<g id="img-search">
 			<path fill="currentColor" d="M21.707 20.293L16.314 14.9C17.403 13.504 18 11.799 18 10C18 7.863 17.167 5.854 15.656 4.344C14.146 2.832 12.137 2 10 2C7.863 2 5.854 2.832 4.344 4.344C2.833 5.854 2 7.863 2 10C2 12.137 2.833 14.146 4.344 15.656C5.854 17.168 7.863 18 10 18C11.799 18 13.504 17.404 14.9 16.314L20.293 21.706L21.707 20.293ZM10 16C8.397 16 6.891 15.376 5.758 14.243C4.624 13.11 4 11.603 4 10C4 8.398 4.624 6.891 5.758 5.758C6.891 4.624 8.397 4 10 4C11.603 4 13.109 4.624 14.242 5.758C15.376 6.891 16 8.398 16 10C16 11.603 15.376 13.11 14.242 14.243C13.109 15.376 11.603 16 10 16Z"/>
 		</g>
-		<g id="img-adjust">
-			<path fill="currentColor" d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
+		<g id="img-dark">
+		    <path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"/>
+		</g>
+		<g id="img-light">
+		    <path fill="currentColor" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828 2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0 0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0 0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0 0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0 0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/>
+		    <circle xmlns="http://www.w3.org/2000/svg" fill="currentColor" cx="18" cy="18" r="10"/>
 		</g>
 		<g id="img-credit">
 			<path fill="currentColor" d="M6 1C3.243 1 1 3.244 1 6c0 2.758 2.243 5 5 5s5-2.242 5-5c0-2.756-2.243-5-5-5zm0 2.376a.625.625 0 110 1.25.625.625 0 010-1.25zM7.5 8.5h-3v-1h1V6H5V5h1a.5.5 0 01.5.5v2h1v1z"/>
