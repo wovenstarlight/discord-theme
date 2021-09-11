@@ -331,6 +331,8 @@ body.light {
 	transition-property: opacity;
 }
 body.no-search .tmblr-iframe { margin-right: 5.5em; }
+body.no-darklight .tmblr-iframe { margin-right: 13.5em }
+body.no-search.no-darklight .tmblr-iframe { margin-right: 3.5em }
 #tmblr-controls-toggle, .tmblr-iframe { transition: .3s; }
 body.controls-click #tmblr-controls-toggle { transform: rotate(65deg); }
 body.controls-click .tmblr-iframe {

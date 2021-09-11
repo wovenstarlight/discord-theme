@@ -221,7 +221,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 </head>
 
 
-<body class="{select:Default color mode} {block:IfNotShowSearchBar}no-search{/block:IfNotShowSearchBar}">
+<body class="{select:Default color mode}{block:IfNotShowSearchBar} no-search{/block:IfNotShowSearchBar}{block:IfNotShowColorModeToggle} no-darklight{/block:IfNotShowColorModeToggle}">
 
 <nav id="servers">
 	<a href="/" data-tippy-content="{lang:Home}" class="{block:HomePage}active{/block:HomePage}">
