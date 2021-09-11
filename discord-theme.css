@@ -484,8 +484,8 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 }
 .tag-wrapper .tag:hover { text-decoration: none; background-color: var(--bg-standard); border-color: #fff3; }
 .tag-wrapper .tag svg { flex-shrink: 0; padding-top: 0.125em;}
-#customlike { position: relative; }
-#customlike .like_button .like_toggle {
+.customlike { position: relative; }
+.customlike .like_button .like_toggle {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -511,7 +511,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 .post .actions a, .post .actions .notecount { height: 32px; padding: 6px; color: var(--secondary) }
 .post .actions a { width: 32px; }
 .post .actions a:hover { background: var(--channels-hover); }
-#customlike .like_button.liked ~ svg { color: #ed4245; }
+.customlike .like_button.liked ~ svg { color: #ed4245; }
 
 
 .post .title {
