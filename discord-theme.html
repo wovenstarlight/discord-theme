@@ -8,6 +8,7 @@
     	Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
     	Icons from Font Awesome: https://fontawesome.com
     	Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
+    	NPF photosets fix by glenthemes: https://glenthemes.tumblr.com/post/659034084446748672/npf-images-v3
 -->
 
 <!DOCTYPE html>
@@ -79,6 +80,23 @@
 	
 	<!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--
+            NPF images fix v3.0 by @glenthemes [2021]
+            💌 git.io/JRBt7
+    --->
+    <script src="//npf-images-v3.github.io/script.js"></script>
+    <link rel="stylesheet" href="//npf-images-v3.github.io/recon.css">
+    <style tmblr-npf>
+    :root {
+        --NPF-Caption-Spacing:1em;
+        --NPF-Image-Spacing:0.5em;
+    }
+    /* Slight modifications for narrower images */
+    [post-type="text"] .npf_inst > .tmblr-full img,
+    body .post div.npf_row {
+    	width: min(650px, 100%);
+    }
+    </style>
     <!-- Tippy.js tooltips by atomiks -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
@@ -221,12 +239,12 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	</a>
 	{/block:SubmissionsEnabled}
 	{block:Likes}
-	<a href="/liked/by/{Name}" data-tippy-content="{lang:Likes}" class="{block:LikesPage}active{/block:LikesPage}">
+	<a href="https://tumblr.com/liked/by/{Name}" data-tippy-content="{lang:Likes}" class="{block:LikesPage}active{/block:LikesPage}">
 		<svg width="1.5em" height="1.5em" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-likes"></use></svg>
 	</a>
 	{/block:Likes}
 	{block:ShareFollowing}
-	<a href="/followed/by/{Name}" data-tippy-content="{lang:Following}" class="{block:FollowingPage}active{/block:FollowingPage}">
+	<a href="https://tumblr.com/followed/by/{Name}" data-tippy-content="{lang:Following}" class="{block:FollowingPage}active{/block:FollowingPage}">
 		<svg width="1.5em" height="1.5em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin"><use xlink:href="#img-following"></use></svg>
 	</a>
 	{/block:ShareFollowing}
@@ -326,9 +344,9 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	{block:IndexPage}{block:NoPosts}<p>{lang:No posts found}</p>{/block:NoPosts}{/block:IndexPage}
 	{block:SearchPage}{block:NoSearchResults}<p>{lang:Sorry no search results found}</p>{/block:NoSearchResults}{/block:SearchPage}
 	
-	{block:Posts inlineMediaWidth="500" inlineNestedMediaWidth="500"}
+	{block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
 
-	<section class="post">
+	<section class="post" post-type="{PostType}">
 		{block:Date}
 		<p class="timestamp">
 			{block:IfShowDates}
