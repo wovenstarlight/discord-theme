@@ -1,16 +1,16 @@
 <!-- 
-    THEME 1: DISCORD
-    
-    Theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
-    
-    Credits:
-    	Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
-    	Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
-    	Icons from Font Awesome (https://fontawesome.com) and Discord
-    	Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
+	THEME 1: DISCORD
+
+	Theme created by wovenstarlight. Original interface design belongs to discordapp.com; I do not claim any rights to the design.
+
+	Credits:
+		Tippy.js tooltips by atomiks: https://atomiks.github.io/tippyjs
+		Toggleable Tumblr controls by seyche: https://seyche.tumblr.com/post/643682133088583680/hi-looove-your-new-blog-theme-i-was-wondering-if
+		Icons from Font Awesome (https://fontawesome.com) and Discord
+		Custom like buttons by Georgi Demirev: https://demirev.cubthemes.com/post/106345243051/changing-like-and-reblog-button-colors-revisited
 		Infinite scroll by Paul Irish and Luke Shumard: https://infinite-scroll.com/
-    	NPF photosets fix by glenthemes: https://glenthemes.tumblr.com/post/659034084446748672/npf-images-v3
-    	Dark/light mode toggle by eggdesign: https://eggdesign.tumblr.com/post/186889223257/day-night-mode-tutorial-after-featuring-a
+		NPF photosets fix by glenthemes: https://glenthemes.tumblr.com/post/659034084446748672/npf-images-v3
+		Dark/light mode toggle by eggdesign: https://eggdesign.tumblr.com/post/186889223257/day-night-mode-tutorial-after-featuring-a
 -->
 
 <!DOCTYPE html>
@@ -81,31 +81,31 @@
 	<meta name="text:Discord tag" content="0000">
 	
 	<!-- jQuery CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--
-            NPF images fix v3.0 by @glenthemes [2021]
-            💌 git.io/JRBt7
-    --->
-    <script src="//npf-images-v3.github.io/script.js"></script>
-    <link rel="stylesheet" href="//npf-images-v3.github.io/recon.css">
-    <style tmblr-npf>
-    :root {
-        --NPF-Caption-Spacing:1em;
-        --NPF-Image-Spacing:0.5em;
-    }
-    /* Slight modifications for narrower images */
-    [post-type="text"] .npf_inst > .tmblr-full img,
-    body .post div.npf_row {
-    	width: min(650px, 100%);
-    }
-    </style>
-    <!-- Tippy.js tooltips by atomiks -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-    {block:IfInfiniteScroll}
-    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
-    {/block:IfInfiniteScroll}
-    <script src="https://wovenstarlight.github.io/discord-theme/discord-theme.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!--
+			NPF images fix v3.0 by @glenthemes [2021]
+			💌 git.io/JRBt7
+	--->
+	<script src="//npf-images-v3.github.io/script.js"></script>
+	<link rel="stylesheet" href="//npf-images-v3.github.io/recon.css">
+	<style tmblr-npf>
+	:root {
+		--NPF-Caption-Spacing:1em;
+		--NPF-Image-Spacing:0.5em;
+	}
+	/* Slight modifications for narrower images */
+	[post-type="text"] .npf_inst > .tmblr-full img,
+	body .post div.npf_row {
+		width: min(650px, 100%);
+	}
+	</style>
+	<!-- Tippy.js tooltips by atomiks -->
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="https://unpkg.com/tippy.js@6"></script>
+	{block:IfInfiniteScroll}
+	<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+	{/block:IfInfiniteScroll}
+	<script src="https://wovenstarlight.github.io/discord-theme/discord-theme.min.js"></script>
 	
 <!-- Main styles -->
 <link rel="stylesheet" href="https://wovenstarlight.github.io/discord-theme/discord-theme.min.css">
@@ -146,7 +146,7 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	object-fit: {block:StretchHeaderImage}cover{/block:StretchHeaderImage}{block:NoStretchHeaderImage}contain{/block:NoStretchHeaderImage}
 }
 #sidebar header.banner h1 {
-    background: -webkit-linear-gradient(270deg,rgba(0,0,0,{select:Background for title on header image}) 25%,transparent);
+	background: -webkit-linear-gradient(270deg,rgba(0,0,0,{select:Background for title on header image}) 25%,transparent);
 	background: linear-gradient(180deg,rgba(0,0,0,{select:Background for title on header image}) 25%,transparent);
 }
 {block:ShowAvatar}
@@ -162,9 +162,9 @@ body.light em, body.light i { color: {color:Light mode italics} }
 }
 {block:TagPage}
 #navigate .navigation {
-    display: flex;
-    align-items: center;
-    column-gap: 1em;
+	display: flex;
+	align-items: center;
+	column-gap: 1em;
 }
 {/block:TagPage}
 .paginate a { padding: 0.5em; margin: -0.5em }
@@ -801,10 +801,10 @@ body.light em, body.light i { color: {color:Light mode italics} }
 	{/block:Posts}
 	
 	{block:PostNotes}
-    <aside id="notes">
-        <h2>{lang:Notes}</h2>
-        {PostNotes-64}
-    </aside>
+	<aside id="notes">
+		<h2>{lang:Notes}</h2>
+		{PostNotes-64}
+	</aside>
 	{/block:PostNotes}
 </main>
 
@@ -852,11 +852,11 @@ body.light em, body.light i { color: {color:Light mode italics} }
 			<path fill="currentColor" d="M21.707 20.293L16.314 14.9C17.403 13.504 18 11.799 18 10C18 7.863 17.167 5.854 15.656 4.344C14.146 2.832 12.137 2 10 2C7.863 2 5.854 2.832 4.344 4.344C2.833 5.854 2 7.863 2 10C2 12.137 2.833 14.146 4.344 15.656C5.854 17.168 7.863 18 10 18C11.799 18 13.504 17.404 14.9 16.314L20.293 21.706L21.707 20.293ZM10 16C8.397 16 6.891 15.376 5.758 14.243C4.624 13.11 4 11.603 4 10C4 8.398 4.624 6.891 5.758 5.758C6.891 4.624 8.397 4 10 4C11.603 4 13.109 4.624 14.242 5.758C15.376 6.891 16 8.398 16 10C16 11.603 15.376 13.11 14.242 14.243C13.109 15.376 11.603 16 10 16Z"/>
 		</g>
 		<g id="img-dark">
-		    <path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"/>
+			<path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"/>
 		</g>
 		<g id="img-light">
-		    <path fill="currentColor" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828 2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0 0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0 0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0 0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0 0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/>
-		    <circle xmlns="http://www.w3.org/2000/svg" fill="currentColor" cx="18" cy="18" r="10"/>
+			<path fill="currentColor" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828 2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0 0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0 0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0 0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0 0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/>
+			<circle xmlns="http://www.w3.org/2000/svg" fill="currentColor" cx="18" cy="18" r="10"/>
 		</g>
 		<g id="img-credit">
 			<path fill="currentColor" d="M6 1C3.243 1 1 3.244 1 6c0 2.758 2.243 5 5 5s5-2.242 5-5c0-2.756-2.243-5-5-5zm0 2.376a.625.625 0 110 1.25.625.625 0 010-1.25zM7.5 8.5h-3v-1h1V6H5V5h1a.5.5 0 01.5.5v2h1v1z"/>
@@ -922,11 +922,11 @@ body.light em, body.light i { color: {color:Light mode italics} }
 {block:HasPages}
 {block:PermalinkPage}
 <script>
-    $("#channels a").each( function() {
-        if ($(this).attr('href') === window.location.pathname) {
-            $(this).addClass("active")
-        }
-    })
+	$("#channels a").each( function() {
+		if ($(this).attr('href') === window.location.pathname) {
+			$(this).addClass("active")
+		}
+	})
 </script>
 {/block:PermalinkPage}
 {/block:HasPages}

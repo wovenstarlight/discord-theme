@@ -516,10 +516,10 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 
 
 .post .title {
-    font-weight: 700;
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-    color: var(--header);
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-bottom: 0.5em;
+	color: var(--header);
 }
 .post .title:not(:first-child) { margin-top: 0.5em; }
 .photo-wrapper { position: relative; margin: 0.25em 0; }
@@ -535,10 +535,10 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 .photo-wrapper:hover .highres { visibility: visible }
 blockquote,
 p.npf_quote {
-    padding-right: 0.5em;
-    padding-left: 0.875em;
-    margin: 0.5em 0;
-    position: relative;
+	padding-right: 0.5em;
+	padding-left: 0.875em;
+	margin: 0.5em 0;
+	position: relative;
 }
 blockquote::before,
 p.npf_quote::before {
@@ -553,21 +553,21 @@ p.npf_quote::before {
 }
 .quotetext,
 p.npf_quote {
-    font-family: var(--font-normal);
-    font-size: 1em;
-    background-color: var(--sidebar);
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+	font-family: var(--font-normal);
+	font-size: 1em;
+	background-color: var(--sidebar);
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 }
 .boxquote {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 .boxquote.ask {
-    display: grid;
-    grid-template-columns: 1fr 3em;
-    grid-template-rows: auto 1fr;
-    column-gap: 1.5em;
+	display: grid;
+	grid-template-columns: 1fr 3em;
+	grid-template-rows: auto 1fr;
+	column-gap: 1.5em;
 	row-gap: 0.25em;
 }
 .boxquote.ask .asked { color: var(--text-muted); }
