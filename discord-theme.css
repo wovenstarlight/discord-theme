@@ -536,7 +536,7 @@ body.light .post:hover, body.light .post:hover .timestamp .date { background: #f
 /* Addon to glenthemes' NPF photoset fix; makes images narrower */
 .npf_inst > .tmblr-full img,
 body .post div.npf_row {
-	width: min(650px, 100%);
+	width: min(650px, 100%) !important;
 }
 blockquote,
 p.npf_quote {
