@@ -722,8 +722,10 @@ body.light em, body.light i { color: {color:Light mode italics} }
 		
 		{block:Answer}
 			<div class="bodyitem">
-				<img src="{block:NotReblog}{PortraitURL-64}{/block:NotReblog}{block:Answerer}{AnswererPortraitURL-64}{/block:Answerer}" class="circle usericon"/>
-				<a class="username" href="{Permalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootName}{/block:RebloggedFrom}</a>
+				<a href="{block:NotReblog}{Permalink}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootURL}{/block:RebloggedFrom}" class="circle usericon">
+					<img src="{block:NotReblog}{PortraitURL-64}{/block:NotReblog}{block:Answerer}{AnswererPortraitURL-64}{/block:Answerer}" class="circle usericon"/>
+				</a>
+				<a class="username{block:Answerer}{block:IsDeactivated} deactivated{/block:IsDeactivated}{/block:Answerer}" href="{Permalink}">{block:NotReblog}{PostAuthorName}{/block:NotReblog}{block:RebloggedFrom}{ReblogRootName}{/block:RebloggedFrom}</a>
 				<div class="content">
 					<div class="boxquote ask">
 						<p class="asked">{lang:Asker asked 2}:</p>
